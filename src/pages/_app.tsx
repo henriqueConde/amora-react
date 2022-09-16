@@ -3,17 +3,11 @@ import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'
 
 import GlobalStyles from 'styles/global'
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ThemeProviderProxy: any = ThemeProvider
-
-const theme = {
-  color: 'red'
-}
+import theme from 'styles/theme'
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProviderProxy theme={theme}>
+    <ThemeProvider theme={theme}>
       <Head>
         <title>React Avançado - Boilerplate</title>
         <link rel="shortcut icon" href="/img/icon-512.png" />
@@ -27,7 +21,7 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />
-    </ThemeProviderProxy>
+    </ThemeProvider>
   )
 }
 
