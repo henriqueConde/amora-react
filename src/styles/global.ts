@@ -20,4 +20,5 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-export default GlobalStyles
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default GlobalStyles as any
