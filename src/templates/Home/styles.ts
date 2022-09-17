@@ -2,14 +2,14 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 import * as HeadingStyles from 'components/Heading/styles'
-import * as GameCardSliderStyles from 'components/ProductCardSlider/styles'
+import * as ProductCardSliderStyles from 'components/ProductCardSlider/styles'
 import * as HighlightStyles from 'components/Highlight/styles'
 
 const Sections = styled.section`
   ${({ theme }) => css`
     ${HeadingStyles.Wrapper},
     ${HighlightStyles.Wrapper},
-    ${GameCardSliderStyles.Wrapper} {
+    ${ProductCardSliderStyles.Wrapper} {
       margin-bottom: ${theme.spacings.medium};
     }
     ${HighlightStyles.Wrapper} {
@@ -18,7 +18,7 @@ const Sections = styled.section`
         margin-left: calc(-${theme.grid.gutter} / 2);
       `}
     }
-    ${GameCardSliderStyles.Wrapper} {
+    ${ProductCardSliderStyles.Wrapper} {
       ${media.lessThan('huge')`
         margin-right: calc(-${theme.grid.gutter} / 2);
       `}
