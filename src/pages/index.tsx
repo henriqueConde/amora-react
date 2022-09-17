@@ -1,25 +1,24 @@
-import { ApolloClient, gql, InMemoryCache } from '@apollo/client'
-import Main from 'components/Main'
+import Home, { HomeTemplateProps } from 'templates/Home'
+import bannersMock from 'components/BannerSlider/mock'
+import perfumesMock from 'components/ProductCardSlider/mock'
+import highlightMock from 'components/Highlight/mock'
 
-export default function Home() {
-  const client = new ApolloClient({
-    uri: 'http://localhost:1337/graphql',
-    cache: new InMemoryCache()
-  })
+export default function Index(props: HomeTemplateProps) {
+  return <Home {...props} />
+}
 
-  client.query({
-    query: gql`
-      query GET_BRANDS {
-        brands {
-          data {
-            attributes {
-              name
-            }
-          }
-        }
-      }
-    `
-  })
-
-  return <Main />
+export function getServerSideProps() {
+  return {
+    props: {
+      banners: bannersMock,
+      newPerfumes: perfumesMock,
+      mostPopularHighlight: highlightMock,
+      mostPopularPerfumes: perfumesMock,
+      upcomingPerfumes: perfumesMock,
+      upcomingHighligth: highlightMock,
+      upcomingMorePerfumes: perfumesMock,
+      promotionalPerfumes: perfumesMock,
+      promotionalHighligth: highlightMock
+    }
+  }
 }
