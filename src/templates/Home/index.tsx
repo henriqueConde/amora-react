@@ -1,15 +1,14 @@
 import { BannerProps } from 'components/Banner'
 import { ProductCardProps } from 'components/ProductCard'
-import Highlight, { HighlightProps } from 'components/Highlight'
+import { HighlightProps } from 'components/Highlight'
 
 import { Container } from 'components/Container'
-import Footer from 'components/Footer'
-import Heading from 'components/Heading'
 import Menu from 'components/Menu'
-import ProductCardSlider from 'components/ProductCardSlider'
+import Footer from 'components/Footer'
 import BannerSlider from 'components/BannerSlider'
 
 import * as S from './styles'
+import Showcase from 'components/Showcase'
 
 export type HomeTemplateProps = {
   banners: BannerProps[]
@@ -17,10 +16,10 @@ export type HomeTemplateProps = {
   mostPopularHighlight: HighlightProps
   mostPopularPerfumes: ProductCardProps[]
   upcomingPerfumes: ProductCardProps[]
-  upcomingHighligth: HighlightProps
+  upcomingHighlight: HighlightProps
   upcomingMorePerfumes: ProductCardProps[]
   promotionalPerfumes: ProductCardProps[]
-  promotionalHighligth: HighlightProps
+  promotionalHighlight: HighlightProps
 }
 
 const Home = ({
@@ -29,10 +28,10 @@ const Home = ({
   mostPopularHighlight,
   mostPopularPerfumes,
   upcomingPerfumes,
-  upcomingHighligth,
+  upcomingHighlight,
   upcomingMorePerfumes,
   promotionalPerfumes,
-  promotionalHighligth
+  promotionalHighlight
 }: HomeTemplateProps) => (
   <section>
     <Container>
@@ -43,43 +42,25 @@ const Home = ({
     </Container>
 
     <S.SectionNews>
-      <Container>
-        <Heading lineLeft lineColor="secondary" color="black">
-          News
-        </Heading>
-
-        <ProductCardSlider items={newPerfumes} color="black" />
-      </Container>
+      <Showcase title="News" perfumes={newPerfumes} />
     </S.SectionNews>
 
-    <Container>
-      <S.SectionMostPopular>
-        <Heading lineLeft lineColor="secondary">
-          Most Popular
-        </Heading>
+    <Showcase
+      title="Most Popular"
+      highlight={mostPopularHighlight}
+      perfumes={mostPopularPerfumes}
+    />
 
-        <Highlight {...mostPopularHighlight} />
-        <ProductCardSlider items={mostPopularPerfumes} />
-      </S.SectionMostPopular>
+    <S.SectionUpcoming>
+      <Showcase title="Upcoming" perfumes={upcomingPerfumes} />
+      <Showcase highlight={upcomingHighlight} perfumes={upcomingMorePerfumes} />
+    </S.SectionUpcoming>
 
-      <S.SectionUpcoming>
-        <Heading lineLeft lineColor="secondary">
-          Upcoming
-        </Heading>
-        <ProductCardSlider items={upcomingPerfumes} />
-        <Highlight {...upcomingHighligth} />
-        <ProductCardSlider items={upcomingMorePerfumes} />
-      </S.SectionUpcoming>
-
-      <S.SectionPromotionalPerfumes>
-        <Heading lineLeft lineColor="secondary">
-          Promotional Perfumes
-        </Heading>
-
-        <Highlight {...promotionalHighligth} />
-        <ProductCardSlider items={promotionalPerfumes} />
-      </S.SectionPromotionalPerfumes>
-    </Container>
+    <Showcase
+      title="Free perfumes"
+      highlight={promotionalHighlight}
+      perfumes={promotionalPerfumes}
+    />
 
     <S.SectionFooter>
       <Container>
@@ -88,4 +69,5 @@ const Home = ({
     </S.SectionFooter>
   </section>
 )
+
 export default Home
