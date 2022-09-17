@@ -3,12 +3,11 @@ import { ProductCardProps } from 'components/ProductCard'
 import { HighlightProps } from 'components/Highlight'
 
 import { Container } from 'components/Container'
-import Menu from 'components/Menu'
-import Footer from 'components/Footer'
 import BannerSlider from 'components/BannerSlider'
+import Showcase from 'components/Showcase'
 
 import * as S from './styles'
-import Showcase from 'components/Showcase'
+import Base from 'templates/Base'
 
 export type HomeTemplateProps = {
   banners: BannerProps[]
@@ -33,9 +32,8 @@ const Home = ({
   promotionalPerfumes,
   promotionalHighlight
 }: HomeTemplateProps) => (
-  <section>
+  <Base>
     <Container>
-      <Menu />
       <S.SectionBanner>
         <BannerSlider items={banners} />
       </S.SectionBanner>
@@ -61,13 +59,7 @@ const Home = ({
       highlight={promotionalHighlight}
       perfumes={promotionalPerfumes}
     />
-
-    <S.SectionFooter>
-      <Container>
-        <Footer />
-      </Container>
-    </S.SectionFooter>
-  </section>
+  </Base>
 )
 
 export default Home
