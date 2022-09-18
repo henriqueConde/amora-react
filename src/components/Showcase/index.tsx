@@ -8,10 +8,10 @@ import * as S from './styles'
 export type ShowcaseProps = {
   title?: string
   highlight?: HighlightProps
-  perfumes?: ProductCardProps[]
+  products?: ProductCardProps[]
 }
 
-const Showcase = ({ title, highlight, perfumes }: ShowcaseProps) => (
+const Showcase = ({ title, highlight, products }: ShowcaseProps) => (
   <S.Wrapper>
     {!!title && (
       <Heading lineLeft lineColor="secondary">
@@ -19,7 +19,7 @@ const Showcase = ({ title, highlight, perfumes }: ShowcaseProps) => (
       </Heading>
     )}
     {!!highlight && <Highlight {...highlight} />}
-    {!!perfumes && <ProductCardSlider items={perfumes} />}
+    {!!products && <ProductCardSlider items={products} />}
   </S.Wrapper>
 )
 

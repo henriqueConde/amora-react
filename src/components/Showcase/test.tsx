@@ -10,7 +10,7 @@ import Showcase from '.'
 const props = {
   title: 'Most Popular',
   highlight: highlightMock,
-  perfumes: perfumesMock.slice(0, 1)
+  products: perfumesMock.slice(0, 1)
 }
 
 describe('<Showcase />', () => {
@@ -32,7 +32,7 @@ describe('<Showcase />', () => {
 
   it('should render without title', () => {
     renderWithTheme(
-      <Showcase perfumes={props.perfumes} highlight={props.highlight} />
+      <Showcase products={props.products} highlight={props.highlight} />
     )
 
     screen.getByRole('heading', { name: highlightMock.title })
@@ -44,7 +44,7 @@ describe('<Showcase />', () => {
   })
 
   it('should render without highlight', () => {
-    renderWithTheme(<Showcase title={props.title} perfumes={props.perfumes} />)
+    renderWithTheme(<Showcase title={props.title} products={props.products} />)
 
     screen.getByRole('heading', { name: /most popular/i })
     screen.getByRole('heading', { name: perfumesMock[0].title })

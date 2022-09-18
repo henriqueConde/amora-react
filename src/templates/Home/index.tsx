@@ -13,8 +13,8 @@ export type HomeTemplateProps = {
   banners: BannerProps[]
   newPerfumes: ProductCardProps[]
   mostPopularHighlight: HighlightProps
-  mostPopularPerfumes: ProductCardProps[]
-  upcomingPerfumes: ProductCardProps[]
+  mostPopularProducts: ProductCardProps[]
+  upcomingProducts: ProductCardProps[]
   upcomingHighlight: HighlightProps
   upcomingMorePerfumes: ProductCardProps[]
   promotionalPerfumes: ProductCardProps[]
@@ -25,8 +25,8 @@ const Home = ({
   banners,
   newPerfumes,
   mostPopularHighlight,
-  mostPopularPerfumes,
-  upcomingPerfumes,
+  mostPopularProducts,
+  upcomingProducts,
   upcomingHighlight,
   upcomingMorePerfumes,
   promotionalPerfumes,
@@ -40,24 +40,24 @@ const Home = ({
     </Container>
 
     <S.SectionNews>
-      <Showcase title="News" perfumes={newPerfumes} />
+      <Showcase title="News" products={newPerfumes} />
     </S.SectionNews>
 
     <Showcase
       title="Most Popular"
       highlight={mostPopularHighlight}
-      perfumes={mostPopularPerfumes}
+      products={mostPopularProducts}
     />
 
     <S.SectionUpcoming>
-      <Showcase title="Upcoming" perfumes={upcomingPerfumes} />
-      <Showcase highlight={upcomingHighlight} perfumes={upcomingMorePerfumes} />
+      <Showcase title="Upcoming" products={upcomingProducts} />
+      <Showcase highlight={upcomingHighlight} products={upcomingMorePerfumes} />
     </S.SectionUpcoming>
 
     <Showcase
       title="Free perfumes"
       highlight={promotionalHighlight}
-      perfumes={promotionalPerfumes}
+      products={promotionalPerfumes}
     />
   </Base>
 )

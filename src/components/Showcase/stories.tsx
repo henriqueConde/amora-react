@@ -26,7 +26,7 @@ export const Default: Story<ShowcaseProps> = (args) => <Showcase {...args} />
 Default.args = {
   title: 'Most Popular',
   highlight: highlightMock,
-  perfumes: perfumesMock
+  products: perfumesMock
 }
 
 export const WithoutHighlight: Story<ShowcaseProps> = (args) => (
@@ -35,7 +35,7 @@ export const WithoutHighlight: Story<ShowcaseProps> = (args) => (
 
 WithoutHighlight.args = {
   title: 'Most Popular',
-  perfumes: perfumesMock
+  products: perfumesMock
 }
 
 export const Withoutperfumes: Story<ShowcaseProps> = (args) => (
