@@ -5,14 +5,14 @@ import theme from 'styles/theme'
 
 export const parameters = {
   backgrounds: {
-    default: 'aroma-light',
+    default: 'amora-light',
     values: [
       {
-        name: 'aroma-light',
+        name: 'amora-light',
         value: theme.colors.white
       },
       {
-        name: 'aroma-dark',
+        name: 'amora-dark',
         value: theme.colors.mainBg
       }
     ]

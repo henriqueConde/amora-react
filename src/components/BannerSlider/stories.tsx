@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { Story, Meta } from '@storybook/react'
 import BannerSlider, { BannerSliderProps } from '.'
 import items from './mock'
 
@@ -9,7 +9,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
-      default: 'aroma-dark'
+      default: 'amora-dark'
     }
   }
 } as Meta

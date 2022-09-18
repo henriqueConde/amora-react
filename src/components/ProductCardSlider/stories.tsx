@@ -1,17 +1,17 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { Story, Meta } from '@storybook/react'
 
 import { ProductCardProps } from 'components/ProductCard'
 import ProductCardSlider from '.'
 import items from './mock'
 
 export default {
-  title: 'ProductCardSlider',
+  title: 'Product/ProductCardSlider',
   component: ProductCardSlider,
   args: { items },
   parameters: {
     layout: 'fullscreen',
     backgrounds: {
-      default: 'aroma-dark'
+      default: 'amora-dark'
     }
   }
 } as Meta

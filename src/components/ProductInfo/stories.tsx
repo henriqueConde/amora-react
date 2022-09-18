@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { Story, Meta } from '@storybook/react'
 import ProductInfo, { ProductInfoProps } from '.'
 import mockProduct from './mock'
 

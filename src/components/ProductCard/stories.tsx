@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import ProductCard, { ProductCardProps } from '.'
 
 export default {
-  title: 'ProductCard',
+  title: 'Product/ProductCard',
   component: ProductCard,
   args: {
     title: 'Green Ocean',
