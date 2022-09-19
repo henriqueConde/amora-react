@@ -12,8 +12,8 @@ import { ENUM_COMPONENTPAGERIBBON_COLOR, ENUM_COMPONENTPAGERIBBON_SIZE } from ".
 export interface QueryHome_banners_data_attributes_ribbon {
   __typename: "ComponentPageRibbon";
   text: string;
-  color: ENUM_COMPONENTPAGERIBBON_COLOR | null;
-  size: ENUM_COMPONENTPAGERIBBON_SIZE | null;
+  color: ENUM_COMPONENTPAGERIBBON_COLOR;
+  size: ENUM_COMPONENTPAGERIBBON_SIZE;
 }
 
 export interface QueryHome_banners_data_attributes_button {
@@ -24,23 +24,23 @@ export interface QueryHome_banners_data_attributes_button {
 
 export interface QueryHome_banners_data_attributes_image_data_attributes {
   __typename: "UploadFile";
-  alternativeText: string | null;
+  alternativeText: string;
   url: string;
 }
 
 export interface QueryHome_banners_data_attributes_image_data {
   __typename: "UploadFileEntity";
-  attributes: QueryHome_banners_data_attributes_image_data_attributes | null;
+  attributes: QueryHome_banners_data_attributes_image_data_attributes;
 }
 
 export interface QueryHome_banners_data_attributes_image {
   __typename: "UploadFileEntityResponse";
-  data: QueryHome_banners_data_attributes_image_data | null;
+  data: QueryHome_banners_data_attributes_image_data;
 }
 
 export interface QueryHome_banners_data_attributes {
   __typename: "Banner";
-  ribbon: QueryHome_banners_data_attributes_ribbon | null;
+  ribbon: QueryHome_banners_data_attributes_ribbon;
   title: string;
   subtitle: string;
   button: QueryHome_banners_data_attributes_button;
@@ -49,7 +49,7 @@ export interface QueryHome_banners_data_attributes {
 
 export interface QueryHome_banners_data {
   __typename: "BannerEntity";
-  attributes: QueryHome_banners_data_attributes | null;
+  attributes: QueryHome_banners_data_attributes;
 }
 
 export interface QueryHome_banners {
@@ -58,5 +58,5 @@ export interface QueryHome_banners {
 }
 
 export interface QueryHome {
-  banners: QueryHome_banners | null;
+  banners: QueryHome_banners;
 }
