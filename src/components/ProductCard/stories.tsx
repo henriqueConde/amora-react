@@ -10,7 +10,8 @@ export default {
     brand: 'Boticario',
     img: 'https://images.unsplash.com/photo-1458538977777-0549b2370168?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80',
     price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00'
+    promotionalPrice: 'R$ 215,00',
+    slug: 'green-ocean'
   },
   argTypes: {
     onFav: { action: 'clicked' },
@@ -18,13 +19,13 @@ export default {
   }
 } as Meta
 
-export const Default: Story<ProductCardProps> = (args) => (
+export const Default: Story<ProductCardProps> = (args: ProductCardProps) => (
   <div style={{ width: '30rem' }}>
     <ProductCard {...args} />
   </div>
 )
 
-export const WithRibbon: Story<ProductCardProps> = (args) => (
+export const WithRibbon: Story<ProductCardProps> = (args: ProductCardProps) => (
   <div style={{ width: '30rem' }}>
     <ProductCard {...args} />
   </div>

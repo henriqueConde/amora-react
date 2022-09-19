@@ -5,10 +5,11 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import ProductCard from '.'
 
 const props = {
+  slug: 'green-ocean',
   title: 'Green Ocean',
   brand: 'Boticario',
   img: 'https://images.unsplash.com/photo-1458538977777-0549b2370168?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80',
-  price: 'R$ 235,00'
+  price: 240
 }
 
 describe('<ProductCard />', () => {
@@ -28,26 +29,31 @@ describe('<ProductCard />', () => {
       props.img
     )
 
+    expect(screen.getByRole('link', { name: props.title })).toHaveAttribute(
+      'href',
+      `/product/${props.slug}`
+    )
+
     expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
   })
 
   it('should render price in label', () => {
     renderWithTheme(<ProductCard {...props} />)
 
-    const price = screen.getByText('R$ 235,00')
+    const price = screen.getByText('$240.00')
 
     expect(price).not.toHaveStyle({ textDecoration: 'line-through' })
     expect(price).toHaveStyle({ backgroundColor: theme.colors.secondary })
   })
 
   it('should render a line-through in price when promotional', () => {
-    renderWithTheme(<ProductCard {...props} promotionalPrice="R$ 15,00" />)
+    renderWithTheme(<ProductCard {...props} promotionalPrice={15} />)
 
-    expect(screen.getByText('R$ 235,00')).toHaveStyle({
+    expect(screen.getByText('$240.00')).toHaveStyle({
       textDecoration: 'line-through'
     })
 
-    expect(screen.getByText('R$ 15,00')).not.toHaveStyle({
+    expect(screen.getByText('$15.00')).not.toHaveStyle({
       textDecoration: 'line-through'
     })
   })

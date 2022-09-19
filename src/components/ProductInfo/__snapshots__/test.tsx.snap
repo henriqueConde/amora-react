@@ -236,7 +236,7 @@ exports[`<ProductInfo /> should render product informations 1`] = `
     class="c2 c3"
     color="secondary"
   >
-    $210,00
+    $215.00
   </div>
   <p
     class="c4"

@@ -4,7 +4,7 @@ import ProductInfo from '.'
 const props = {
   title: 'My Product Title',
   description: 'Product Description',
-  price: '210,00'
+  price: 215
 }
 
 describe('<ProductInfo />', () => {
@@ -14,7 +14,7 @@ describe('<ProductInfo />', () => {
     expect(
       screen.getByRole('heading', { name: /my product title/i })
     ).toBeInTheDocument()
-    expect(screen.getByText(/\$210,00/)).toBeInTheDocument()
+    expect(screen.getByText(/\$215.00/)).toBeInTheDocument()
     expect(screen.getByText(/product description/i)).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
