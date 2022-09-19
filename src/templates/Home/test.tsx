@@ -10,7 +10,7 @@ import Home from '.'
 
 const props = {
   banners: bannerMock,
-  newPerfumes: perfumesMock,
+  newProducts: perfumesMock,
   mostPopularHighlight: highlightMock,
   mostPopularProducts: perfumesMock,
   upcomingProducts: perfumesMock,
@@ -43,6 +43,6 @@ describe('<Home />', () => {
     renderWithTheme(<Home {...props} />)
 
     expect(screen.getByTestId('Mock Banner Slider')).toBeInTheDocument()
-    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(5)
+    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(4)
   })
 })

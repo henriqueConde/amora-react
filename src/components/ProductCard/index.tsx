@@ -13,7 +13,7 @@ import { formatPrice } from 'utils/formatPrice'
 export type ProductCardProps = {
   slug: string
   title: string
-  brand: string
+  brand: string | null
   img: string
   price: number
   promotionalPrice?: number

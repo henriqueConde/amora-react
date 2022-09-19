@@ -13,7 +13,7 @@ export type HomeTemplateProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any
   banners: BannerProps[]
-  newPerfumes: ProductCardProps[]
+  newProducts: ProductCardProps[]
   mostPopularHighlight: HighlightProps
   mostPopularProducts: ProductCardProps[]
   upcomingProducts: ProductCardProps[]
@@ -25,12 +25,11 @@ export type HomeTemplateProps = {
 
 const Home = ({
   banners,
-  newPerfumes,
+  newProducts,
   mostPopularHighlight,
   mostPopularProducts,
   upcomingProducts,
   upcomingHighlight,
-  upcomingMorePerfumes,
   promotionalPerfumes,
   promotionalHighlight
 }: HomeTemplateProps) => (
@@ -42,7 +41,7 @@ const Home = ({
     </Container>
 
     <S.SectionNews>
-      <Showcase title="News" products={newPerfumes} />
+      <Showcase title="News" products={newProducts} />
     </S.SectionNews>
 
     <Showcase
@@ -52,8 +51,11 @@ const Home = ({
     />
 
     <S.SectionUpcoming>
-      <Showcase title="Upcoming" products={upcomingProducts} />
-      <Showcase highlight={upcomingHighlight} products={upcomingMorePerfumes} />
+      <Showcase
+        title="Upcoming"
+        products={upcomingProducts}
+        highlight={upcomingHighlight}
+      />
     </S.SectionUpcoming>
 
     <Showcase

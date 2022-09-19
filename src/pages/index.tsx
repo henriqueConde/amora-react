@@ -1,9 +1,12 @@
 import Home, { HomeTemplateProps } from 'templates/Home'
-import perfumesMock from 'components/ProductCardSlider/mock'
-import highlightMock from 'components/Highlight/mock'
 import { initializeApollo } from 'utils/tests/apollo'
 import { QUERY_HOME } from 'graphql/queries/home'
 import { QueryHome } from 'graphql/generated/QueryHome'
+import {
+  mapBanners,
+  mapHighlight,
+  mapProducts
+} from 'utils/queriesMappers/home'
 
 export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />
@@ -12,34 +15,36 @@ export default function Index(props: HomeTemplateProps) {
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
-  const { data } = await apolloClient.query<QueryHome>({ query: QUERY_HOME })
-
-  const banners = data.banners?.data.map((banner) => {
-    const { image, button, ribbon, subtitle, title } = banner.attributes
-    return {
-      img: `http://localhost:1337${image.data.attributes.url}`,
-      title,
-      subtitle,
-      buttonLabel: button.label,
-      buttonLink: button.link,
-      ribbon: ribbon?.text || null,
-      ribbonColor: ribbon?.color || null,
-      ribbonSize: ribbon?.size || null
+  const {
+    data: {
+      banners,
+      sections,
+      newProducts,
+      promotionalProducts,
+      upcomingProducts
     }
+  } = await apolloClient.query<QueryHome>({
+    query: QUERY_HOME
   })
+
+  const popularProducts = sections.data.attributes.popularProducts.products
+  const popularHighlight = sections.data.attributes.popularProducts.highlight
+  const upcomingHighlight = sections.data.attributes.upcomingProducts.highlight
+  const promotionalHighlight =
+    sections.data.attributes.promotionalProducts.highlight
 
   return {
     props: {
       revalidate: 60,
-      banners: banners,
-      newPerfumes: perfumesMock,
-      mostPopularHighlight: highlightMock,
-      mostPopularProducts: perfumesMock,
-      upcomingProducts: perfumesMock,
-      upcomingHighligth: highlightMock,
-      upcomingMorePerfumes: perfumesMock,
-      promotionalPerfumes: perfumesMock,
-      promotionalHighligth: highlightMock
+      banners: mapBanners(banners),
+      newProducts: mapProducts(newProducts),
+      mostPopularHighlight: mapHighlight(popularHighlight),
+      mostPopularProducts: mapProducts(popularProducts),
+      upcomingProducts: mapProducts(upcomingProducts),
+      upcomingHighlight: mapHighlight(upcomingHighlight),
+      upcomingMorePerfumes: mapProducts(upcomingProducts),
+      promotionalPerfumes: mapProducts(promotionalProducts),
+      promotionalHighlight: mapHighlight(promotionalHighlight)
     }
   }
 }

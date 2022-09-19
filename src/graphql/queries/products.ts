@@ -1,33 +1,18 @@
 import { gql } from '@apollo/client'
+import { ProductFragment } from 'graphql/fragments/product'
 
 export const QUERY_PRODUCTS = gql`
   query GET_PRODUCTS($limit: PaginationArg) {
     products(pagination: $limit) {
       data {
         attributes {
-          name
-          slug
-          short_descritpion
-          price
-          release_date
-          cover {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          brand {
-            data {
-              attributes {
-                name
-              }
-            }
-          }
+          ...ProductFragment
         }
       }
     }
   }
+
+  ${ProductFragment}
 `
 
 export const QUERY_PRODUCT_BY_SLUG = gql`

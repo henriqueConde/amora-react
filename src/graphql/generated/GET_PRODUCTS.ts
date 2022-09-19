@@ -9,21 +9,6 @@ import { PaginationArg } from "./globalTypes";
 // GraphQL query operation: GET_PRODUCTS
 // ====================================================
 
-export interface GET_PRODUCTS_products_data_attributes_cover_data_attributes {
-  __typename: "UploadFile";
-  url: string;
-}
-
-export interface GET_PRODUCTS_products_data_attributes_cover_data {
-  __typename: "UploadFileEntity";
-  attributes: GET_PRODUCTS_products_data_attributes_cover_data_attributes | null;
-}
-
-export interface GET_PRODUCTS_products_data_attributes_cover {
-  __typename: "UploadFileEntityResponse";
-  data: GET_PRODUCTS_products_data_attributes_cover_data | null;
-}
-
 export interface GET_PRODUCTS_products_data_attributes_brand_data_attributes {
   __typename: "Brand";
   name: string;
@@ -39,15 +24,28 @@ export interface GET_PRODUCTS_products_data_attributes_brand {
   data: GET_PRODUCTS_products_data_attributes_brand_data | null;
 }
 
+export interface GET_PRODUCTS_products_data_attributes_cover_data_attributes {
+  __typename: "UploadFile";
+  url: string;
+}
+
+export interface GET_PRODUCTS_products_data_attributes_cover_data {
+  __typename: "UploadFileEntity";
+  attributes: GET_PRODUCTS_products_data_attributes_cover_data_attributes | null;
+}
+
+export interface GET_PRODUCTS_products_data_attributes_cover {
+  __typename: "UploadFileEntityResponse";
+  data: GET_PRODUCTS_products_data_attributes_cover_data | null;
+}
+
 export interface GET_PRODUCTS_products_data_attributes {
   __typename: "Product";
   name: string;
   slug: string | null;
-  short_descritpion: string;
   price: number;
-  release_date: any | null;
-  cover: GET_PRODUCTS_products_data_attributes_cover | null;
   brand: GET_PRODUCTS_products_data_attributes_brand | null;
+  cover: GET_PRODUCTS_products_data_attributes_cover | null;
 }
 
 export interface GET_PRODUCTS_products_data {

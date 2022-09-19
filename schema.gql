@@ -267,6 +267,47 @@ type ComponentPageButton {
   link: String!
 }
 
+enum ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT {
+  right
+  left
+}
+
+input ComponentPageHighlightInput {
+  id: ID
+  title: String
+  subtitle: String
+  background: ID
+  floatImage: ID
+  buttonLabel: String
+  buttonLink: String
+  alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT
+}
+
+type ComponentPageHighlight {
+  id: ID!
+  title: String!
+  subtitle: String!
+  background: UploadFileEntityResponse!
+  floatImage: UploadFileEntityResponse
+  buttonLabel: String!
+  buttonLink: String!
+  alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT
+}
+
+input ComponentPagePopularProductsInput {
+  id: ID
+  title: String
+  highlight: ComponentPageHighlightInput
+  products: [ID]
+}
+
+type ComponentPagePopularProducts {
+  id: ID!
+  title: String!
+  highlight: ComponentPageHighlight
+  products(filters: ProductFiltersInput, pagination: PaginationArg = {}, sort: [String] = [], publicationState: PublicationState = LIVE): ProductRelationResponseCollection
+}
+
 enum ENUM_COMPONENTPAGERIBBON_COLOR {
   primary
   seconday
@@ -298,6 +339,18 @@ type ComponentPageRibbon {
   text: String!
   color: ENUM_COMPONENTPAGERIBBON_COLOR
   size: ENUM_COMPONENTPAGERIBBON_SIZE
+}
+
+input ComponentPageSectionInput {
+  id: ID
+  title: String
+  highlight: ComponentPageHighlightInput
+}
+
+type ComponentPageSection {
+  id: ID!
+  title: String
+  highlight: ComponentPageHighlight
 }
 
 input UploadFileFiltersInput {
@@ -737,6 +790,33 @@ type CategoryRelationResponseCollection {
   data: [CategoryEntity!]!
 }
 
+input HomeInput {
+  newProducts: ComponentPageSectionInput
+  upcomingProducts: ComponentPageSectionInput
+  promotionalProducts: ComponentPageSectionInput
+  popularProducts: ComponentPagePopularProductsInput
+  publishedAt: DateTime
+}
+
+type Home {
+  newProducts: ComponentPageSection!
+  upcomingProducts: ComponentPageSection
+  promotionalProducts: ComponentPageSection
+  popularProducts: ComponentPagePopularProducts
+  createdAt: DateTime
+  updatedAt: DateTime
+  publishedAt: DateTime
+}
+
+type HomeEntity {
+  id: ID
+  attributes: Home
+}
+
+type HomeEntityResponse {
+  data: HomeEntity
+}
+
 input LineFiltersInput {
   id: IDFilterInput
   name: StringFilterInput
@@ -848,6 +928,7 @@ input ProductFiltersInput {
   categories: CategoryFiltersInput
   line: LineFiltersInput
   perfurmers: PerfurmerFiltersInput
+  promotionalPrice: FloatFilterInput
   createdAt: DateTimeFilterInput
   updatedAt: DateTimeFilterInput
   publishedAt: DateTimeFilterInput
@@ -870,6 +951,7 @@ input ProductInput {
   categories: [ID]
   line: ID
   perfurmers: [ID]
+  promotionalPrice: Float
   publishedAt: DateTime
 }
 
@@ -887,6 +969,7 @@ type Product {
   categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = [], publicationState: PublicationState = LIVE): CategoryRelationResponseCollection
   line: LineEntityResponse
   perfurmers(filters: PerfurmerFiltersInput, pagination: PaginationArg = {}, sort: [String] = [], publicationState: PublicationState = LIVE): PerfurmerRelationResponseCollection
+  promotionalPrice: Float
   createdAt: DateTime
   updatedAt: DateTime
   publishedAt: DateTime
@@ -910,7 +993,7 @@ type ProductRelationResponseCollection {
   data: [ProductEntity!]!
 }
 
-union GenericMorph = ComponentPageButton | ComponentPageRibbon | UploadFile | UploadFolder | I18NLocale | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Banner | Brand | Category | Line | Perfurmer | Product
+union GenericMorph = ComponentPageButton | ComponentPageHighlight | ComponentPagePopularProducts | ComponentPageRibbon | ComponentPageSection | UploadFile | UploadFolder | I18NLocale | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Banner | Brand | Category | Home | Line | Perfurmer | Product
 
 input FileInfoInput {
   name: String
@@ -991,6 +1074,7 @@ type Query {
   brands(filters: BrandFiltersInput, pagination: PaginationArg = {}, sort: [String] = [], publicationState: PublicationState = LIVE): BrandEntityResponseCollection
   category(id: ID): CategoryEntityResponse
   categories(filters: CategoryFiltersInput, pagination: PaginationArg = {}, sort: [String] = [], publicationState: PublicationState = LIVE): CategoryEntityResponseCollection
+  home(publicationState: PublicationState = LIVE): HomeEntityResponse
   line(id: ID): LineEntityResponse
   lines(filters: LineFiltersInput, pagination: PaginationArg = {}, sort: [String] = [], publicationState: PublicationState = LIVE): LineEntityResponseCollection
   perfurmer(id: ID): PerfurmerEntityResponse
@@ -1016,6 +1100,8 @@ type Mutation {
   createCategory(data: CategoryInput!): CategoryEntityResponse
   updateCategory(id: ID!, data: CategoryInput!): CategoryEntityResponse
   deleteCategory(id: ID!): CategoryEntityResponse
+  updateHome(data: HomeInput!): HomeEntityResponse
+  deleteHome: HomeEntityResponse
   createLine(data: LineInput!): LineEntityResponse
   updateLine(id: ID!, data: LineInput!): LineEntityResponse
   deleteLine(id: ID!): LineEntityResponse

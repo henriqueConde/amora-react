@@ -9,7 +9,7 @@ export type BannerProps = {
   subtitle: string
   buttonLabel: string
   buttonLink: string
-  ribbon?: React.ReactNode
+  ribbon?: string
   ribbonColor?: RibbonColors
   ribbonSize?: RibbonSizes
 }

@@ -27,7 +27,7 @@ export async function getStaticProps() {
   })
   console.log(data)
 
-  const products = data.products.data.map((product) => {
+  const products = data?.products?.data.map((product) => {
     const { name, price, cover, brand, slug } = product.attributes
     const brandProxy = brand.data?.attributes?.name
       ? brand.data.attributes.name
