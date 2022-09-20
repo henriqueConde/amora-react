@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components'
 
 import GlobalStyles from 'styles/global'
 import theme from 'styles/theme'
-import { useApollo } from 'utils/tests/apollo'
+import { useApollo } from 'utils/apollo'
 
 interface ApolloAppProps extends AppProps {
   pageProps: {

@@ -3,7 +3,7 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { PaginationArg } from "./globalTypes";
+import { ProductFiltersInput } from "./globalTypes";
 
 // ====================================================
 // GraphQL query operation: GET_PRODUCTS
@@ -16,12 +16,12 @@ export interface GET_PRODUCTS_products_data_attributes_brand_data_attributes {
 
 export interface GET_PRODUCTS_products_data_attributes_brand_data {
   __typename: "BrandEntity";
-  attributes: GET_PRODUCTS_products_data_attributes_brand_data_attributes | null;
+  attributes: GET_PRODUCTS_products_data_attributes_brand_data_attributes;
 }
 
 export interface GET_PRODUCTS_products_data_attributes_brand {
   __typename: "BrandEntityResponse";
-  data: GET_PRODUCTS_products_data_attributes_brand_data | null;
+  data: GET_PRODUCTS_products_data_attributes_brand_data;
 }
 
 export interface GET_PRODUCTS_products_data_attributes_cover_data_attributes {
@@ -31,26 +31,26 @@ export interface GET_PRODUCTS_products_data_attributes_cover_data_attributes {
 
 export interface GET_PRODUCTS_products_data_attributes_cover_data {
   __typename: "UploadFileEntity";
-  attributes: GET_PRODUCTS_products_data_attributes_cover_data_attributes | null;
+  attributes: GET_PRODUCTS_products_data_attributes_cover_data_attributes;
 }
 
 export interface GET_PRODUCTS_products_data_attributes_cover {
   __typename: "UploadFileEntityResponse";
-  data: GET_PRODUCTS_products_data_attributes_cover_data | null;
+  data: GET_PRODUCTS_products_data_attributes_cover_data;
 }
 
 export interface GET_PRODUCTS_products_data_attributes {
   __typename: "Product";
   name: string;
-  slug: string | null;
+  slug: string;
   price: number;
-  brand: GET_PRODUCTS_products_data_attributes_brand | null;
-  cover: GET_PRODUCTS_products_data_attributes_cover | null;
+  brand: GET_PRODUCTS_products_data_attributes_brand;
+  cover: GET_PRODUCTS_products_data_attributes_cover;
 }
 
 export interface GET_PRODUCTS_products_data {
   __typename: "ProductEntity";
-  attributes: GET_PRODUCTS_products_data_attributes | null;
+  attributes: GET_PRODUCTS_products_data_attributes;
 }
 
 export interface GET_PRODUCTS_products {
@@ -59,9 +59,12 @@ export interface GET_PRODUCTS_products {
 }
 
 export interface GET_PRODUCTS {
-  products: GET_PRODUCTS_products | null;
+  products: GET_PRODUCTS_products;
 }
 
 export interface GET_PRODUCTSVariables {
-  limit?: PaginationArg | null;
+  limit: number;
+  start?: number | null;
+  where?: ProductFiltersInput | null;
+  sort?: (string)[] | null;
 }

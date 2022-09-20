@@ -12,8 +12,8 @@ import { ENUM_COMPONENTPAGERIBBON_COLOR, ENUM_COMPONENTPAGERIBBON_SIZE, ENUM_COM
 export interface QueryHome_banners_data_attributes_ribbon {
   __typename: "ComponentPageRibbon";
   text: string;
-  color: ENUM_COMPONENTPAGERIBBON_COLOR;
-  size: ENUM_COMPONENTPAGERIBBON_SIZE;
+  color: ENUM_COMPONENTPAGERIBBON_COLOR | null;
+  size: ENUM_COMPONENTPAGERIBBON_SIZE | null;
 }
 
 export interface QueryHome_banners_data_attributes_button {
@@ -24,23 +24,23 @@ export interface QueryHome_banners_data_attributes_button {
 
 export interface QueryHome_banners_data_attributes_image_data_attributes {
   __typename: "UploadFile";
-  alternativeText: string;
+  alternativeText: string | null;
   url: string;
 }
 
 export interface QueryHome_banners_data_attributes_image_data {
   __typename: "UploadFileEntity";
-  attributes: QueryHome_banners_data_attributes_image_data_attributes;
+  attributes: QueryHome_banners_data_attributes_image_data_attributes | null;
 }
 
 export interface QueryHome_banners_data_attributes_image {
   __typename: "UploadFileEntityResponse";
-  data: QueryHome_banners_data_attributes_image_data;
+  data: QueryHome_banners_data_attributes_image_data | null;
 }
 
 export interface QueryHome_banners_data_attributes {
   __typename: "Banner";
-  ribbon: QueryHome_banners_data_attributes_ribbon;
+  ribbon: QueryHome_banners_data_attributes_ribbon | null;
   title: string;
   subtitle: string;
   button: QueryHome_banners_data_attributes_button;
@@ -49,7 +49,7 @@ export interface QueryHome_banners_data_attributes {
 
 export interface QueryHome_banners_data {
   __typename: "BannerEntity";
-  attributes: QueryHome_banners_data_attributes;
+  attributes: QueryHome_banners_data_attributes | null;
 }
 
 export interface QueryHome_banners {
@@ -64,12 +64,12 @@ export interface QueryHome_newProducts_data_attributes_brand_data_attributes {
 
 export interface QueryHome_newProducts_data_attributes_brand_data {
   __typename: "BrandEntity";
-  attributes: QueryHome_newProducts_data_attributes_brand_data_attributes;
+  attributes: QueryHome_newProducts_data_attributes_brand_data_attributes | null;
 }
 
 export interface QueryHome_newProducts_data_attributes_brand {
   __typename: "BrandEntityResponse";
-  data: QueryHome_newProducts_data_attributes_brand_data;
+  data: QueryHome_newProducts_data_attributes_brand_data | null;
 }
 
 export interface QueryHome_newProducts_data_attributes_cover_data_attributes {
@@ -79,26 +79,26 @@ export interface QueryHome_newProducts_data_attributes_cover_data_attributes {
 
 export interface QueryHome_newProducts_data_attributes_cover_data {
   __typename: "UploadFileEntity";
-  attributes: QueryHome_newProducts_data_attributes_cover_data_attributes;
+  attributes: QueryHome_newProducts_data_attributes_cover_data_attributes | null;
 }
 
 export interface QueryHome_newProducts_data_attributes_cover {
   __typename: "UploadFileEntityResponse";
-  data: QueryHome_newProducts_data_attributes_cover_data;
+  data: QueryHome_newProducts_data_attributes_cover_data | null;
 }
 
 export interface QueryHome_newProducts_data_attributes {
   __typename: "Product";
   name: string;
-  slug: string;
+  slug: string | null;
   price: number;
-  brand: QueryHome_newProducts_data_attributes_brand;
-  cover: QueryHome_newProducts_data_attributes_cover;
+  brand: QueryHome_newProducts_data_attributes_brand | null;
+  cover: QueryHome_newProducts_data_attributes_cover | null;
 }
 
 export interface QueryHome_newProducts_data {
   __typename: "ProductEntity";
-  attributes: QueryHome_newProducts_data_attributes;
+  attributes: QueryHome_newProducts_data_attributes | null;
 }
 
 export interface QueryHome_newProducts {
@@ -113,12 +113,12 @@ export interface QueryHome_upcomingProducts_data_attributes_brand_data_attribute
 
 export interface QueryHome_upcomingProducts_data_attributes_brand_data {
   __typename: "BrandEntity";
-  attributes: QueryHome_upcomingProducts_data_attributes_brand_data_attributes;
+  attributes: QueryHome_upcomingProducts_data_attributes_brand_data_attributes | null;
 }
 
 export interface QueryHome_upcomingProducts_data_attributes_brand {
   __typename: "BrandEntityResponse";
-  data: QueryHome_upcomingProducts_data_attributes_brand_data;
+  data: QueryHome_upcomingProducts_data_attributes_brand_data | null;
 }
 
 export interface QueryHome_upcomingProducts_data_attributes_cover_data_attributes {
@@ -128,26 +128,26 @@ export interface QueryHome_upcomingProducts_data_attributes_cover_data_attribute
 
 export interface QueryHome_upcomingProducts_data_attributes_cover_data {
   __typename: "UploadFileEntity";
-  attributes: QueryHome_upcomingProducts_data_attributes_cover_data_attributes;
+  attributes: QueryHome_upcomingProducts_data_attributes_cover_data_attributes | null;
 }
 
 export interface QueryHome_upcomingProducts_data_attributes_cover {
   __typename: "UploadFileEntityResponse";
-  data: QueryHome_upcomingProducts_data_attributes_cover_data;
+  data: QueryHome_upcomingProducts_data_attributes_cover_data | null;
 }
 
 export interface QueryHome_upcomingProducts_data_attributes {
   __typename: "Product";
   name: string;
-  slug: string;
+  slug: string | null;
   price: number;
-  brand: QueryHome_upcomingProducts_data_attributes_brand;
-  cover: QueryHome_upcomingProducts_data_attributes_cover;
+  brand: QueryHome_upcomingProducts_data_attributes_brand | null;
+  cover: QueryHome_upcomingProducts_data_attributes_cover | null;
 }
 
 export interface QueryHome_upcomingProducts_data {
   __typename: "ProductEntity";
-  attributes: QueryHome_upcomingProducts_data_attributes;
+  attributes: QueryHome_upcomingProducts_data_attributes | null;
 }
 
 export interface QueryHome_upcomingProducts {
@@ -162,12 +162,12 @@ export interface QueryHome_promotionalProducts_data_attributes_brand_data_attrib
 
 export interface QueryHome_promotionalProducts_data_attributes_brand_data {
   __typename: "BrandEntity";
-  attributes: QueryHome_promotionalProducts_data_attributes_brand_data_attributes;
+  attributes: QueryHome_promotionalProducts_data_attributes_brand_data_attributes | null;
 }
 
 export interface QueryHome_promotionalProducts_data_attributes_brand {
   __typename: "BrandEntityResponse";
-  data: QueryHome_promotionalProducts_data_attributes_brand_data;
+  data: QueryHome_promotionalProducts_data_attributes_brand_data | null;
 }
 
 export interface QueryHome_promotionalProducts_data_attributes_cover_data_attributes {
@@ -177,26 +177,26 @@ export interface QueryHome_promotionalProducts_data_attributes_cover_data_attrib
 
 export interface QueryHome_promotionalProducts_data_attributes_cover_data {
   __typename: "UploadFileEntity";
-  attributes: QueryHome_promotionalProducts_data_attributes_cover_data_attributes;
+  attributes: QueryHome_promotionalProducts_data_attributes_cover_data_attributes | null;
 }
 
 export interface QueryHome_promotionalProducts_data_attributes_cover {
   __typename: "UploadFileEntityResponse";
-  data: QueryHome_promotionalProducts_data_attributes_cover_data;
+  data: QueryHome_promotionalProducts_data_attributes_cover_data | null;
 }
 
 export interface QueryHome_promotionalProducts_data_attributes {
   __typename: "Product";
   name: string;
-  slug: string;
+  slug: string | null;
   price: number;
-  brand: QueryHome_promotionalProducts_data_attributes_brand;
-  cover: QueryHome_promotionalProducts_data_attributes_cover;
+  brand: QueryHome_promotionalProducts_data_attributes_brand | null;
+  cover: QueryHome_promotionalProducts_data_attributes_cover | null;
 }
 
 export interface QueryHome_promotionalProducts_data {
   __typename: "ProductEntity";
-  attributes: QueryHome_promotionalProducts_data_attributes;
+  attributes: QueryHome_promotionalProducts_data_attributes | null;
 }
 
 export interface QueryHome_promotionalProducts {
@@ -211,12 +211,12 @@ export interface QueryHome_sections_data_attributes_newProducts_highlight_backgr
 
 export interface QueryHome_sections_data_attributes_newProducts_highlight_background_data {
   __typename: "UploadFileEntity";
-  attributes: QueryHome_sections_data_attributes_newProducts_highlight_background_data_attributes;
+  attributes: QueryHome_sections_data_attributes_newProducts_highlight_background_data_attributes | null;
 }
 
 export interface QueryHome_sections_data_attributes_newProducts_highlight_background {
   __typename: "UploadFileEntityResponse";
-  data: QueryHome_sections_data_attributes_newProducts_highlight_background_data;
+  data: QueryHome_sections_data_attributes_newProducts_highlight_background_data | null;
 }
 
 export interface QueryHome_sections_data_attributes_newProducts_highlight_floatImage_data_attributes {
@@ -226,12 +226,12 @@ export interface QueryHome_sections_data_attributes_newProducts_highlight_floatI
 
 export interface QueryHome_sections_data_attributes_newProducts_highlight_floatImage_data {
   __typename: "UploadFileEntity";
-  attributes: QueryHome_sections_data_attributes_newProducts_highlight_floatImage_data_attributes;
+  attributes: QueryHome_sections_data_attributes_newProducts_highlight_floatImage_data_attributes | null;
 }
 
 export interface QueryHome_sections_data_attributes_newProducts_highlight_floatImage {
   __typename: "UploadFileEntityResponse";
-  data: QueryHome_sections_data_attributes_newProducts_highlight_floatImage_data;
+  data: QueryHome_sections_data_attributes_newProducts_highlight_floatImage_data | null;
 }
 
 export interface QueryHome_sections_data_attributes_newProducts_highlight {
@@ -239,16 +239,16 @@ export interface QueryHome_sections_data_attributes_newProducts_highlight {
   title: string;
   subtitle: string;
   background: QueryHome_sections_data_attributes_newProducts_highlight_background;
-  floatImage: QueryHome_sections_data_attributes_newProducts_highlight_floatImage;
+  floatImage: QueryHome_sections_data_attributes_newProducts_highlight_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
-  alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT;
+  alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;
 }
 
 export interface QueryHome_sections_data_attributes_newProducts {
   __typename: "ComponentPageSection";
-  title: string;
-  highlight: QueryHome_sections_data_attributes_newProducts_highlight;
+  title: string | null;
+  highlight: QueryHome_sections_data_attributes_newProducts_highlight | null;
 }
 
 export interface QueryHome_sections_data_attributes_popularProducts_highlight_background_data_attributes {
@@ -258,12 +258,12 @@ export interface QueryHome_sections_data_attributes_popularProducts_highlight_ba
 
 export interface QueryHome_sections_data_attributes_popularProducts_highlight_background_data {
   __typename: "UploadFileEntity";
-  attributes: QueryHome_sections_data_attributes_popularProducts_highlight_background_data_attributes;
+  attributes: QueryHome_sections_data_attributes_popularProducts_highlight_background_data_attributes | null;
 }
 
 export interface QueryHome_sections_data_attributes_popularProducts_highlight_background {
   __typename: "UploadFileEntityResponse";
-  data: QueryHome_sections_data_attributes_popularProducts_highlight_background_data;
+  data: QueryHome_sections_data_attributes_popularProducts_highlight_background_data | null;
 }
 
 export interface QueryHome_sections_data_attributes_popularProducts_highlight_floatImage_data_attributes {
@@ -273,12 +273,12 @@ export interface QueryHome_sections_data_attributes_popularProducts_highlight_fl
 
 export interface QueryHome_sections_data_attributes_popularProducts_highlight_floatImage_data {
   __typename: "UploadFileEntity";
-  attributes: QueryHome_sections_data_attributes_popularProducts_highlight_floatImage_data_attributes;
+  attributes: QueryHome_sections_data_attributes_popularProducts_highlight_floatImage_data_attributes | null;
 }
 
 export interface QueryHome_sections_data_attributes_popularProducts_highlight_floatImage {
   __typename: "UploadFileEntityResponse";
-  data: QueryHome_sections_data_attributes_popularProducts_highlight_floatImage_data;
+  data: QueryHome_sections_data_attributes_popularProducts_highlight_floatImage_data | null;
 }
 
 export interface QueryHome_sections_data_attributes_popularProducts_highlight {
@@ -286,10 +286,10 @@ export interface QueryHome_sections_data_attributes_popularProducts_highlight {
   title: string;
   subtitle: string;
   background: QueryHome_sections_data_attributes_popularProducts_highlight_background;
-  floatImage: QueryHome_sections_data_attributes_popularProducts_highlight_floatImage;
+  floatImage: QueryHome_sections_data_attributes_popularProducts_highlight_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
-  alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT;
+  alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;
 }
 
 export interface QueryHome_sections_data_attributes_popularProducts_products_data_attributes_brand_data_attributes {
@@ -299,12 +299,12 @@ export interface QueryHome_sections_data_attributes_popularProducts_products_dat
 
 export interface QueryHome_sections_data_attributes_popularProducts_products_data_attributes_brand_data {
   __typename: "BrandEntity";
-  attributes: QueryHome_sections_data_attributes_popularProducts_products_data_attributes_brand_data_attributes;
+  attributes: QueryHome_sections_data_attributes_popularProducts_products_data_attributes_brand_data_attributes | null;
 }
 
 export interface QueryHome_sections_data_attributes_popularProducts_products_data_attributes_brand {
   __typename: "BrandEntityResponse";
-  data: QueryHome_sections_data_attributes_popularProducts_products_data_attributes_brand_data;
+  data: QueryHome_sections_data_attributes_popularProducts_products_data_attributes_brand_data | null;
 }
 
 export interface QueryHome_sections_data_attributes_popularProducts_products_data_attributes_cover_data_attributes {
@@ -314,26 +314,26 @@ export interface QueryHome_sections_data_attributes_popularProducts_products_dat
 
 export interface QueryHome_sections_data_attributes_popularProducts_products_data_attributes_cover_data {
   __typename: "UploadFileEntity";
-  attributes: QueryHome_sections_data_attributes_popularProducts_products_data_attributes_cover_data_attributes;
+  attributes: QueryHome_sections_data_attributes_popularProducts_products_data_attributes_cover_data_attributes | null;
 }
 
 export interface QueryHome_sections_data_attributes_popularProducts_products_data_attributes_cover {
   __typename: "UploadFileEntityResponse";
-  data: QueryHome_sections_data_attributes_popularProducts_products_data_attributes_cover_data;
+  data: QueryHome_sections_data_attributes_popularProducts_products_data_attributes_cover_data | null;
 }
 
 export interface QueryHome_sections_data_attributes_popularProducts_products_data_attributes {
   __typename: "Product";
   name: string;
-  slug: string;
+  slug: string | null;
   price: number;
-  brand: QueryHome_sections_data_attributes_popularProducts_products_data_attributes_brand;
-  cover: QueryHome_sections_data_attributes_popularProducts_products_data_attributes_cover;
+  brand: QueryHome_sections_data_attributes_popularProducts_products_data_attributes_brand | null;
+  cover: QueryHome_sections_data_attributes_popularProducts_products_data_attributes_cover | null;
 }
 
 export interface QueryHome_sections_data_attributes_popularProducts_products_data {
   __typename: "ProductEntity";
-  attributes: QueryHome_sections_data_attributes_popularProducts_products_data_attributes;
+  attributes: QueryHome_sections_data_attributes_popularProducts_products_data_attributes | null;
 }
 
 export interface QueryHome_sections_data_attributes_popularProducts_products {
@@ -344,8 +344,8 @@ export interface QueryHome_sections_data_attributes_popularProducts_products {
 export interface QueryHome_sections_data_attributes_popularProducts {
   __typename: "ComponentPagePopularProducts";
   title: string;
-  highlight: QueryHome_sections_data_attributes_popularProducts_highlight;
-  products: QueryHome_sections_data_attributes_popularProducts_products;
+  highlight: QueryHome_sections_data_attributes_popularProducts_highlight | null;
+  products: QueryHome_sections_data_attributes_popularProducts_products | null;
 }
 
 export interface QueryHome_sections_data_attributes_upcomingProducts_highlight_background_data_attributes {
@@ -355,12 +355,12 @@ export interface QueryHome_sections_data_attributes_upcomingProducts_highlight_b
 
 export interface QueryHome_sections_data_attributes_upcomingProducts_highlight_background_data {
   __typename: "UploadFileEntity";
-  attributes: QueryHome_sections_data_attributes_upcomingProducts_highlight_background_data_attributes;
+  attributes: QueryHome_sections_data_attributes_upcomingProducts_highlight_background_data_attributes | null;
 }
 
 export interface QueryHome_sections_data_attributes_upcomingProducts_highlight_background {
   __typename: "UploadFileEntityResponse";
-  data: QueryHome_sections_data_attributes_upcomingProducts_highlight_background_data;
+  data: QueryHome_sections_data_attributes_upcomingProducts_highlight_background_data | null;
 }
 
 export interface QueryHome_sections_data_attributes_upcomingProducts_highlight_floatImage_data_attributes {
@@ -370,12 +370,12 @@ export interface QueryHome_sections_data_attributes_upcomingProducts_highlight_f
 
 export interface QueryHome_sections_data_attributes_upcomingProducts_highlight_floatImage_data {
   __typename: "UploadFileEntity";
-  attributes: QueryHome_sections_data_attributes_upcomingProducts_highlight_floatImage_data_attributes;
+  attributes: QueryHome_sections_data_attributes_upcomingProducts_highlight_floatImage_data_attributes | null;
 }
 
 export interface QueryHome_sections_data_attributes_upcomingProducts_highlight_floatImage {
   __typename: "UploadFileEntityResponse";
-  data: QueryHome_sections_data_attributes_upcomingProducts_highlight_floatImage_data;
+  data: QueryHome_sections_data_attributes_upcomingProducts_highlight_floatImage_data | null;
 }
 
 export interface QueryHome_sections_data_attributes_upcomingProducts_highlight {
@@ -383,16 +383,16 @@ export interface QueryHome_sections_data_attributes_upcomingProducts_highlight {
   title: string;
   subtitle: string;
   background: QueryHome_sections_data_attributes_upcomingProducts_highlight_background;
-  floatImage: QueryHome_sections_data_attributes_upcomingProducts_highlight_floatImage;
+  floatImage: QueryHome_sections_data_attributes_upcomingProducts_highlight_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
-  alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT;
+  alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;
 }
 
 export interface QueryHome_sections_data_attributes_upcomingProducts {
   __typename: "ComponentPageSection";
-  title: string;
-  highlight: QueryHome_sections_data_attributes_upcomingProducts_highlight;
+  title: string | null;
+  highlight: QueryHome_sections_data_attributes_upcomingProducts_highlight | null;
 }
 
 export interface QueryHome_sections_data_attributes_promotionalProducts_highlight_background_data_attributes {
@@ -402,12 +402,12 @@ export interface QueryHome_sections_data_attributes_promotionalProducts_highligh
 
 export interface QueryHome_sections_data_attributes_promotionalProducts_highlight_background_data {
   __typename: "UploadFileEntity";
-  attributes: QueryHome_sections_data_attributes_promotionalProducts_highlight_background_data_attributes;
+  attributes: QueryHome_sections_data_attributes_promotionalProducts_highlight_background_data_attributes | null;
 }
 
 export interface QueryHome_sections_data_attributes_promotionalProducts_highlight_background {
   __typename: "UploadFileEntityResponse";
-  data: QueryHome_sections_data_attributes_promotionalProducts_highlight_background_data;
+  data: QueryHome_sections_data_attributes_promotionalProducts_highlight_background_data | null;
 }
 
 export interface QueryHome_sections_data_attributes_promotionalProducts_highlight_floatImage_data_attributes {
@@ -417,12 +417,12 @@ export interface QueryHome_sections_data_attributes_promotionalProducts_highligh
 
 export interface QueryHome_sections_data_attributes_promotionalProducts_highlight_floatImage_data {
   __typename: "UploadFileEntity";
-  attributes: QueryHome_sections_data_attributes_promotionalProducts_highlight_floatImage_data_attributes;
+  attributes: QueryHome_sections_data_attributes_promotionalProducts_highlight_floatImage_data_attributes | null;
 }
 
 export interface QueryHome_sections_data_attributes_promotionalProducts_highlight_floatImage {
   __typename: "UploadFileEntityResponse";
-  data: QueryHome_sections_data_attributes_promotionalProducts_highlight_floatImage_data;
+  data: QueryHome_sections_data_attributes_promotionalProducts_highlight_floatImage_data | null;
 }
 
 export interface QueryHome_sections_data_attributes_promotionalProducts_highlight {
@@ -430,40 +430,40 @@ export interface QueryHome_sections_data_attributes_promotionalProducts_highligh
   title: string;
   subtitle: string;
   background: QueryHome_sections_data_attributes_promotionalProducts_highlight_background;
-  floatImage: QueryHome_sections_data_attributes_promotionalProducts_highlight_floatImage;
+  floatImage: QueryHome_sections_data_attributes_promotionalProducts_highlight_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
-  alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT;
+  alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;
 }
 
 export interface QueryHome_sections_data_attributes_promotionalProducts {
   __typename: "ComponentPageSection";
-  title: string;
-  highlight: QueryHome_sections_data_attributes_promotionalProducts_highlight;
+  title: string | null;
+  highlight: QueryHome_sections_data_attributes_promotionalProducts_highlight | null;
 }
 
 export interface QueryHome_sections_data_attributes {
   __typename: "Home";
   newProducts: QueryHome_sections_data_attributes_newProducts;
-  popularProducts: QueryHome_sections_data_attributes_popularProducts;
-  upcomingProducts: QueryHome_sections_data_attributes_upcomingProducts;
-  promotionalProducts: QueryHome_sections_data_attributes_promotionalProducts;
+  popularProducts: QueryHome_sections_data_attributes_popularProducts | null;
+  upcomingProducts: QueryHome_sections_data_attributes_upcomingProducts | null;
+  promotionalProducts: QueryHome_sections_data_attributes_promotionalProducts | null;
 }
 
 export interface QueryHome_sections_data {
   __typename: "HomeEntity";
-  attributes: QueryHome_sections_data_attributes;
+  attributes: QueryHome_sections_data_attributes | null;
 }
 
 export interface QueryHome_sections {
   __typename: "HomeEntityResponse";
-  data: QueryHome_sections_data;
+  data: QueryHome_sections_data | null;
 }
 
 export interface QueryHome {
-  banners: QueryHome_banners;
-  newProducts: QueryHome_newProducts;
-  upcomingProducts: QueryHome_upcomingProducts;
-  promotionalProducts: QueryHome_promotionalProducts;
-  sections: QueryHome_sections;
+  banners: QueryHome_banners | null;
+  newProducts: QueryHome_newProducts | null;
+  upcomingProducts: QueryHome_upcomingProducts | null;
+  promotionalProducts: QueryHome_promotionalProducts | null;
+  sections: QueryHome_sections | null;
 }

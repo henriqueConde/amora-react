@@ -3,6 +3,10 @@ import { HighlightProps } from 'components/Highlight'
 import { ProductCardProps } from 'components/ProductCard'
 import { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import {
+  GET_PRODUCTS,
+  GET_PRODUCTS_products_data
+} from 'graphql/generated/GET_PRODUCTS'
+import {
   QueryHome_banners,
   QueryHome_newProducts,
   QueryHome_promotionalProducts,
@@ -33,14 +37,30 @@ export const mapBanners = (banners: QueryHome_banners): BannerProps[] => {
   })
 }
 
-type products =
+type homeProducts =
   | QueryHome_newProducts
   | QueryHome_upcomingProducts
   | QueryHome_promotionalProducts
   | QueryHome_sections_data_attributes_popularProducts_products
 
-export const mapProducts = (products: products): ProductCardProps[] => {
+export const mapHomeProducts = (products: homeProducts): ProductCardProps[] => {
   const productsArr = products.data
+  return productsArr.map((product) => {
+    const { name, brand, cover, price, slug } = product.attributes
+    return {
+      title: name,
+      brand: brand.data?.attributes.name || null,
+      img: `${BRASE_URL}${cover.data.attributes.url}`,
+      price,
+      slug
+    }
+  })
+}
+
+type products = GET_PRODUCTS
+
+export const mapProducts = (products: products): ProductCardProps[] => {
+  const productsArr = products?.products?.data as GET_PRODUCTS_products_data[]
   return productsArr.map((product) => {
     const { name, brand, cover, price, slug } = product.attributes
     return {

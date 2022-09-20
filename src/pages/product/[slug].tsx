@@ -3,7 +3,7 @@ import Product, { ProductTemplateProps } from 'templates/Product'
 
 import perfumesMock from 'components/ProductCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
-import { initializeApollo } from 'utils/tests/apollo'
+import { initializeApollo } from 'utils/apollo'
 import {
   GET_PRODUCTS,
   GET_PRODUCTSVariables

@@ -2,7 +2,7 @@ export default [
   {
     title: 'Price',
     name: 'price',
-    type: 'checkbox',
+    type: 'radio',
     fields: [
       {
         label: 'Under $50',
@@ -27,17 +27,17 @@ export default [
     ]
   },
   {
-    title: 'Sort by',
-    name: 'sort_by',
+    title: 'Sort',
+    name: 'sort',
     type: 'radio',
     fields: [
       {
         label: 'High to low',
-        name: 'high-to-low'
+        name: 'price:desc'
       },
       {
         label: 'Low to high',
-        name: 'low-to-high'
+        name: 'price:asc'
       }
     ]
   },
@@ -61,8 +61,8 @@ export default [
     ]
   },
   {
-    title: 'Category',
-    name: 'category',
+    title: 'Categories',
+    name: 'categories',
     type: 'checkbox',
     fields: [
       {

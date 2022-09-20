@@ -1,12 +1,8 @@
 import Home, { HomeTemplateProps } from 'templates/Home'
-import { initializeApollo } from 'utils/tests/apollo'
+import { initializeApollo } from 'utils/apollo'
 import { QUERY_HOME } from 'graphql/queries/home'
 import { QueryHome } from 'graphql/generated/QueryHome'
-import {
-  mapBanners,
-  mapHighlight,
-  mapProducts
-} from 'utils/queriesMappers/home'
+import { mapBanners, mapHighlight, mapHomeProducts } from 'utils/queriesMappers'
 
 export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />
@@ -37,13 +33,13 @@ export async function getStaticProps() {
     props: {
       revalidate: 60,
       banners: mapBanners(banners),
-      newProducts: mapProducts(newProducts),
+      newProducts: mapHomeProducts(newProducts),
       mostPopularHighlight: mapHighlight(popularHighlight),
-      mostPopularProducts: mapProducts(popularProducts),
-      upcomingProducts: mapProducts(upcomingProducts),
+      mostPopularProducts: mapHomeProducts(popularProducts),
+      upcomingProducts: mapHomeProducts(upcomingProducts),
       upcomingHighlight: mapHighlight(upcomingHighlight),
-      upcomingMorePerfumes: mapProducts(upcomingProducts),
-      promotionalPerfumes: mapProducts(promotionalProducts),
+      upcomingMorePerfumes: mapHomeProducts(upcomingProducts),
+      promotionalPerfumes: mapHomeProducts(promotionalProducts),
       promotionalHighlight: mapHighlight(promotionalHighlight)
     }
   }

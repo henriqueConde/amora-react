@@ -1,9 +1,22 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
-import perfumesMock from 'components/ProductCardSlider/mock'
 import filterItemsMock from 'components/ExploreSidebar/mock'
+import { MockedProvider } from '@apollo/client/testing'
 
 import Products from '.'
+import { QUERY_PRODUCTS } from 'graphql/queries/products'
+import { productsResponseMock } from './mock'
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+const push = jest.fn()
+
+useRouter.mockImplementation(() => ({
+  push,
+  query: '',
+  asPath: '',
+  route: '/'
+}))
 
 jest.mock('templates/Base', () => ({
   __esModule: true,
@@ -19,24 +32,31 @@ jest.mock('components/ExploreSidebar', () => ({
   }
 }))
 
-jest.mock('components/ProductCard', () => ({
-  __esModule: true,
-  default: function Mock() {
-    return <div data-testid="Mock ProductCard" />
-  }
-}))
-
 describe('<Products />', () => {
-  it('should render sections', () => {
-    renderWithTheme(
-      <Products filterItems={filterItemsMock} products={[perfumesMock[0]]} />
+  it('should render sections', async () => {
+    const { container } = renderWithTheme(
+      <MockedProvider
+        mocks={[
+          {
+            request: {
+              query: QUERY_PRODUCTS,
+              variables: { limit: 5 }
+            },
+            result: {
+              ...productsResponseMock
+            }
+          }
+        ]}
+        addTypename={false}
+      >
+        <Products filterItems={filterItemsMock} />
+      </MockedProvider>
     )
 
-    expect(screen.getByTestId('Mock ExploreSidebar')).toBeInTheDocument()
-    expect(screen.getByTestId('Mock ProductCard')).toBeInTheDocument()
+    expect(await container).toMatchSnapshot()
 
     expect(
-      screen.getByRole('button', { name: /show more/i })
+      await screen.getByRole('button', { name: /show more/i })
     ).toBeInTheDocument()
   })
 })

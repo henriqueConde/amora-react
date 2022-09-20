@@ -10,12 +10,10 @@ describe('<ExploreSidebar />', () => {
     renderWithTheme(<ExploreSidebar items={items} onFilter={jest.fn} />)
 
     expect(screen.getByRole('heading', { name: /price/i })).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: /sort by/i })
-    ).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /sort/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /brand/i })).toBeInTheDocument()
     expect(
-      screen.getByRole('heading', { name: /category/i })
+      screen.getByRole('heading', { name: /categories/i })
     ).toBeInTheDocument()
   })
 
@@ -23,7 +21,7 @@ describe('<ExploreSidebar />', () => {
     renderWithTheme(<ExploreSidebar items={items} onFilter={jest.fn} />)
 
     expect(
-      screen.getByRole('checkbox', { name: /under \$50/i })
+      screen.getByRole('radio', { name: /under \$50/i })
     ).toBeInTheDocument()
 
     expect(
@@ -42,11 +40,11 @@ describe('<ExploreSidebar />', () => {
       <ExploreSidebar
         items={items}
         onFilter={jest.fn}
-        initialValues={{ boticario: true, sort_by: 'low-to-high' }}
+        initialValues={{ categories: ['oriental'], sort: ['price:asc'] }}
       />
     )
 
-    expect(screen.getByRole('checkbox', { name: /boticario/i })).toBeChecked()
+    expect(screen.getByRole('checkbox', { name: /oriental/i })).toBeChecked()
 
     expect(screen.getByRole('radio', { name: /low to high/i })).toBeChecked()
   })
@@ -57,14 +55,17 @@ describe('<ExploreSidebar />', () => {
     renderWithTheme(
       <ExploreSidebar
         items={items}
-        initialValues={{ boticario: true, sort_by: 'low-to-high' }}
+        initialValues={{ categories: ['oriental'], sort: ['price:desc'] }}
         onFilter={onFilter}
       />
     )
 
     fireEvent.click(screen.getByRole('button', { name: /filter/i }))
 
-    expect(onFilter).toBeCalledWith({ boticario: true, sort_by: 'low-to-high' })
+    expect(onFilter).toBeCalledWith({
+      categories: ['oriental'],
+      sort: ['price:desc']
+    })
   })
 
   it('should filter with checked values', () => {
@@ -72,16 +73,15 @@ describe('<ExploreSidebar />', () => {
 
     renderWithTheme(<ExploreSidebar items={items} onFilter={onFilter} />)
 
-    fireEvent.click(screen.getByLabelText(/boticario/i))
-    fireEvent.click(screen.getByLabelText(/elysee/i))
+    fireEvent.click(screen.getByLabelText(/oriental/i))
+    fireEvent.click(screen.getByLabelText(/aromatic/i))
     fireEvent.click(screen.getByLabelText(/low to high/i))
 
     fireEvent.click(screen.getByRole('button', { name: /filter/i }))
 
     expect(onFilter).toBeCalledWith({
-      boticario: true,
-      elysee: true,
-      sort_by: 'low-to-high'
+      categories: ['oriental', 'aromatic'],
+      sort: ['price:asc']
     })
   })
 
@@ -95,6 +95,6 @@ describe('<ExploreSidebar />', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /filter/i }))
 
-    expect(onFilter).toBeCalledWith({ sort_by: 'high-to-low' })
+    expect(onFilter).toBeCalledWith({ sort: ['price:desc'] })
   })
 })

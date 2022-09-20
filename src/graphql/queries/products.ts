@@ -2,8 +2,17 @@ import { gql } from '@apollo/client'
 import { ProductFragment } from 'graphql/fragments/product'
 
 export const QUERY_PRODUCTS = gql`
-  query GET_PRODUCTS($limit: PaginationArg) {
-    products(pagination: $limit) {
+  query GET_PRODUCTS(
+    $limit: Int!
+    $start: Int
+    $where: ProductFiltersInput
+    $sort: [String]
+  ) {
+    products(
+      pagination: { limit: $limit, start: $start }
+      filters: $where
+      sort: $sort
+    ) {
       data {
         attributes {
           ...ProductFragment
