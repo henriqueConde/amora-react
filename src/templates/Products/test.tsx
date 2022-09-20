@@ -55,8 +55,6 @@ describe('<Products />', () => {
 
     expect(await container).toMatchSnapshot()
 
-    expect(
-      await screen.getByRole('button', { name: /show more/i })
-    ).toBeInTheDocument()
+    expect(await screen.getByTestId('loading-spinner')).toBeInTheDocument()
   })
 })

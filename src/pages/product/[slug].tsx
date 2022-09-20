@@ -14,6 +14,7 @@ import {
   QueryProductsBySlugVariables
 } from 'graphql/generated/QueryProductsBySlug'
 import { GetStaticProps } from 'next/types'
+import { GetStaticPropsContext } from 'next'
 
 const apolloClient = initializeApollo()
 
@@ -32,9 +33,7 @@ export async function getStaticPaths() {
   >({
     query: QUERY_PRODUCTS,
     variables: {
-      limit: {
-        limit: 9
-      }
+      limit: 9
     }
   })
 
@@ -50,7 +49,9 @@ export async function getStaticPaths() {
   return { paths, fallback: true }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({
+  params
+}: GetStaticPropsContext) => {
   const { data } = await apolloClient.query<
     QueryProductsBySlug,
     QueryProductsBySlugVariables

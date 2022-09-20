@@ -1,12 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Products /> should render sections 1`] = `
-.c4 {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: hidden;
-}
-
 .c2 {
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(25rem,1fr));
@@ -24,16 +18,41 @@ exports[`<Products /> should render sections 1`] = `
 }
 
 .c3 {
-  color: #FAFAFA;
-  text-align: center;
-  padding: 3.2rem;
-  text-transform: uppercase;
-  font-weight: bold;
-  cursor: pointer;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
-.c3 > svg {
-  color: #F231A5;
+.c4 {
+  display: block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.c4::after {
+  border: 32px solid #FAFAFA;
+  border-color: #FAFAFA transparent #FAFAFA transparent;
+  content: ' ';
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 8px;
+  box-sizing: border-box;
+  -webkit-animation: loadingAnimation 1.2s infinite;
+  animation: loadingAnimation 1.2s infinite;
 }
 
 @media (min-width:768px) {
@@ -58,32 +77,15 @@ exports[`<Products /> should render sections 1`] = `
         <div
           class="c2"
         />
-        <div
+        <main
           class="c3"
-          role="button"
         >
-          <p>
-            Show More
-          </p>
-          <svg
-            aria-hidden="true"
+          <div
             class="c4"
-            fill="currentColor"
-            focusable="false"
-            height="35"
-            viewBox="0 0 24 24"
-            width="35"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0 0h24v24H0V0z"
-              fill="none"
-            />
-            <path
-              d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-            />
-          </svg>
-        </div>
+            color="white"
+            data-testid="loading-spinner"
+          />
+        </main>
       </section>
     </div>
   </div>

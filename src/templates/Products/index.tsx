@@ -26,7 +26,8 @@ export type ProductsTemplateProps = {
 const ProductsTemplate = ({ filterItems }: ProductsTemplateProps) => {
   const { push, query } = useRouter()
   console.log(query)
-  const { data, fetchMore, error } = useQueryProducts({
+  const { data, fetchMore, error, loading } = useQueryProducts({
+    notifyOnNetworkStatusChange: true,
     variables: {
       limit: 2,
       where: query
@@ -79,35 +80,34 @@ const ProductsTemplate = ({ filterItems }: ProductsTemplateProps) => {
     <Base>
       <S.Main>
         {error && <p>{error.message}</p>}
-        {!availableProds && error?.message === '' ? (
-          <Loading />
-        ) : (
-          <>
-            <ExploreSidebar
-              initialValues={parseQueryStringToFilter({
-                queryString: query,
-                filterItems
-              })}
-              items={filterItems}
-              onFilter={handleFilter}
-            />
+        <>
+          <ExploreSidebar
+            initialValues={parseQueryStringToFilter({
+              queryString: query,
+              filterItems
+            })}
+            items={filterItems}
+            onFilter={handleFilter}
+          />
 
-            <section>
-              <Grid>
-                {(availableProds as ProductCardProps[])?.map((item) => (
-                  <ProductCard key={item.title} {...item} />
-                ))}
-              </Grid>
-
-              {!isLastPage && (
+          <section>
+            <Grid>
+              {(availableProds as ProductCardProps[])?.map((item) => (
+                <ProductCard key={item.title} {...item} />
+              ))}
+            </Grid>
+            {loading ? (
+              <Loading />
+            ) : (
+              !isLastPage && (
                 <S.ShowMore role="button" onClick={handleShowMore}>
                   <p>Show More</p>
                   <ArrowDown size={35} />
                 </S.ShowMore>
-              )}
-            </section>
-          </>
-        )}
+              )
+            )}
+          </section>
+        </>
       </S.Main>
     </Base>
   )
