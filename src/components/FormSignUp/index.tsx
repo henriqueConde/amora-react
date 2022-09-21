@@ -1,18 +1,26 @@
 import Link from 'next/link'
-import { AccountCircle, Email, Lock } from '@styled-icons/material-outlined'
+import {
+  AccountCircle,
+  Email,
+  Lock,
+  ErrorOutline
+} from '@styled-icons/material-outlined'
 
 import Button from 'components/Button'
 import TextField from 'components/TextField'
 import { signIn } from 'next-auth/react'
 
-import { FormWrapper, FormLink } from 'components/Form'
+import { FormWrapper, FormLink, FormError } from 'components/Form'
 import { useState } from 'react'
 import { UsersPermissionsRegisterInput } from 'graphql/generated/globalTypes'
 import { useMutation } from '@apollo/client'
 import { MUTATION_REGISTER } from 'graphql/mutations/register'
 import Loading from 'components/Loading'
+import { FieldErrors, signUpValidate } from 'utils/validations'
 
 const FormSignUp = () => {
+  const [formError, setFormError] = useState<string | undefined>('')
+  const [fieldError, setFieldError] = useState<FieldErrors>({})
   const [values, setValues] = useState<UsersPermissionsRegisterInput>({
     username: '',
     email: '',
@@ -27,11 +35,24 @@ const FormSignUp = () => {
           password: values.password,
           callbackUrl: '/'
         })
+    },
+    onError: () => {
+      setFormError(error?.message)
     }
   })
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
+    setFieldError({})
+    setFormError('')
+
+    const error = signUpValidate(values)
+
+    if (Object.keys(error).length > 0) {
+      setFieldError(error)
+      return
+    }
+
     createUser({
       variables: {
         input: {
@@ -44,6 +65,8 @@ const FormSignUp = () => {
   }
 
   const handleInput = (field: string, value: string) => {
+    setFieldError({})
+    setFormError('')
     setValues((prevState) => ({
       ...prevState,
       [field]: value
@@ -52,13 +75,20 @@ const FormSignUp = () => {
 
   return (
     <FormWrapper>
+      {!!formError && (
+        <FormError>
+          <ErrorOutline />
+          {formError}
+        </FormError>
+      )}
       <form onSubmit={handleSubmit}>
         <TextField
           onInputChange={(value) => handleInput('username', value)}
-          name="usernamename"
+          name="username"
           placeholder="Username"
           type="text"
           icon={<AccountCircle />}
+          error={fieldError?.username}
         />
         <TextField
           onInputChange={(value) => handleInput('email', value)}
@@ -66,6 +96,7 @@ const FormSignUp = () => {
           placeholder="Email"
           type="email"
           icon={<Email />}
+          error={fieldError?.email}
         />
         <TextField
           onInputChange={(value) => handleInput('password', value)}
@@ -73,13 +104,15 @@ const FormSignUp = () => {
           placeholder="Password"
           type="password"
           icon={<Lock />}
+          error={fieldError?.password}
         />
         <TextField
-          onInputChange={(value) => handleInput('confirm-password', value)}
+          onInputChange={(value) => handleInput('confirm_password', value)}
           name="confirm-password"
           placeholder="Confirm password"
           type="password"
           icon={<Lock />}
+          error={fieldError?.confirm_password}
         />
 
         {loading ? (
