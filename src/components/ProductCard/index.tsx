@@ -37,7 +37,7 @@ const ProductCard = ({
   ribbonSize = 'small',
   onFav
 }: ProductCardProps) => (
-  <S.Wrapper>
+  <S.Wrapper data-cy="product-card">
     {!!ribbon && (
       <Ribbon color={ribbonColor} size={ribbonSize}>
         {ribbon}
