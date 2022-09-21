@@ -149,6 +149,13 @@ export const CreateAccount = styled.a`
   ${({ theme }) => css`
     text-decoration: none;
     color: ${theme.colors.primary};
-    border-bottom: 0.2rem solid ${theme.colors.primary};
+    border-bottom: 0.2rem solid;
+  `}
+`
+
+export const Username = styled.div`
+  ${({ theme }) => css`
+    margin-left: ${theme.spacings.small};
+    color: ${theme.colors.primary};
   `}
 `

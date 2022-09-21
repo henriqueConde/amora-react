@@ -31,197 +31,203 @@ export enum ENUM_PRODUCT_RATING {
 }
 
 export interface BrandFiltersInput {
-  id?: IDFilterInput;
-  name?: StringFilterInput;
-  slug?: StringFilterInput;
-  products?: ProductFiltersInput;
-  createdAt?: DateTimeFilterInput;
-  updatedAt?: DateTimeFilterInput;
-  publishedAt?: DateTimeFilterInput;
-  and?: (BrandFiltersInput)[];
-  or?: (BrandFiltersInput)[];
-  not?: BrandFiltersInput;
+  id?: IDFilterInput | null;
+  name?: StringFilterInput | null;
+  slug?: StringFilterInput | null;
+  products?: ProductFiltersInput | null;
+  createdAt?: DateTimeFilterInput | null;
+  updatedAt?: DateTimeFilterInput | null;
+  publishedAt?: DateTimeFilterInput | null;
+  and?: (BrandFiltersInput | null)[] | null;
+  or?: (BrandFiltersInput | null)[] | null;
+  not?: BrandFiltersInput | null;
 }
 
 export interface CategoryFiltersInput {
-  id?: IDFilterInput;
-  name?: StringFilterInput;
-  slug?: StringFilterInput;
-  products?: ProductFiltersInput;
-  createdAt?: DateTimeFilterInput;
-  updatedAt?: DateTimeFilterInput;
-  publishedAt?: DateTimeFilterInput;
-  and?: (CategoryFiltersInput)[];
-  or?: (CategoryFiltersInput)[];
-  not?: CategoryFiltersInput;
+  id?: IDFilterInput | null;
+  name?: StringFilterInput | null;
+  slug?: StringFilterInput | null;
+  products?: ProductFiltersInput | null;
+  createdAt?: DateTimeFilterInput | null;
+  updatedAt?: DateTimeFilterInput | null;
+  publishedAt?: DateTimeFilterInput | null;
+  and?: (CategoryFiltersInput | null)[] | null;
+  or?: (CategoryFiltersInput | null)[] | null;
+  not?: CategoryFiltersInput | null;
 }
 
 export interface DateFilterInput {
-  and?: (any)[];
-  or?: (any)[];
-  not?: DateFilterInput;
-  eq?: any;
-  eqi?: any;
-  ne?: any;
-  startsWith?: any;
-  endsWith?: any;
-  contains?: any;
-  notContains?: any;
-  containsi?: any;
-  notContainsi?: any;
-  gt?: any;
-  gte?: any;
-  lt?: any;
-  lte?: any;
-  null?: boolean;
-  notNull?: boolean;
-  in?: (any)[];
-  notIn?: (any)[];
-  between?: (any)[];
+  and?: (any | null)[] | null;
+  or?: (any | null)[] | null;
+  not?: DateFilterInput | null;
+  eq?: any | null;
+  eqi?: any | null;
+  ne?: any | null;
+  startsWith?: any | null;
+  endsWith?: any | null;
+  contains?: any | null;
+  notContains?: any | null;
+  containsi?: any | null;
+  notContainsi?: any | null;
+  gt?: any | null;
+  gte?: any | null;
+  lt?: any | null;
+  lte?: any | null;
+  null?: boolean | null;
+  notNull?: boolean | null;
+  in?: (any | null)[] | null;
+  notIn?: (any | null)[] | null;
+  between?: (any | null)[] | null;
 }
 
 export interface DateTimeFilterInput {
-  and?: (any)[];
-  or?: (any)[];
-  not?: DateTimeFilterInput;
-  eq?: any;
-  eqi?: any;
-  ne?: any;
-  startsWith?: any;
-  endsWith?: any;
-  contains?: any;
-  notContains?: any;
-  containsi?: any;
-  notContainsi?: any;
-  gt?: any;
-  gte?: any;
-  lt?: any;
-  lte?: any;
-  null?: boolean;
-  notNull?: boolean;
-  in?: (any)[];
-  notIn?: (any)[];
-  between?: (any)[];
+  and?: (any | null)[] | null;
+  or?: (any | null)[] | null;
+  not?: DateTimeFilterInput | null;
+  eq?: any | null;
+  eqi?: any | null;
+  ne?: any | null;
+  startsWith?: any | null;
+  endsWith?: any | null;
+  contains?: any | null;
+  notContains?: any | null;
+  containsi?: any | null;
+  notContainsi?: any | null;
+  gt?: any | null;
+  gte?: any | null;
+  lt?: any | null;
+  lte?: any | null;
+  null?: boolean | null;
+  notNull?: boolean | null;
+  in?: (any | null)[] | null;
+  notIn?: (any | null)[] | null;
+  between?: (any | null)[] | null;
 }
 
 export interface FloatFilterInput {
-  and?: (number)[];
-  or?: (number)[];
-  not?: FloatFilterInput;
-  eq?: number;
-  eqi?: number;
-  ne?: number;
-  startsWith?: number;
-  endsWith?: number;
-  contains?: number;
-  notContains?: number;
-  containsi?: number;
-  notContainsi?: number;
-  gt?: number;
-  gte?: number;
-  lt?: number;
-  lte?: number;
-  null?: boolean;
-  notNull?: boolean;
-  in?: (number)[];
-  notIn?: (number)[];
-  between?: (number)[];
+  and?: (number | null)[] | null;
+  or?: (number | null)[] | null;
+  not?: FloatFilterInput | null;
+  eq?: number | null;
+  eqi?: number | null;
+  ne?: number | null;
+  startsWith?: number | null;
+  endsWith?: number | null;
+  contains?: number | null;
+  notContains?: number | null;
+  containsi?: number | null;
+  notContainsi?: number | null;
+  gt?: number | null;
+  gte?: number | null;
+  lt?: number | null;
+  lte?: number | null;
+  null?: boolean | null;
+  notNull?: boolean | null;
+  in?: (number | null)[] | null;
+  notIn?: (number | null)[] | null;
+  between?: (number | null)[] | null;
 }
 
 export interface IDFilterInput {
-  and?: (string)[];
-  or?: (string)[];
-  not?: IDFilterInput;
-  eq?: string;
-  eqi?: string;
-  ne?: string;
-  startsWith?: string;
-  endsWith?: string;
-  contains?: string;
-  notContains?: string;
-  containsi?: string;
-  notContainsi?: string;
-  gt?: string;
-  gte?: string;
-  lt?: string;
-  lte?: string;
-  null?: boolean;
-  notNull?: boolean;
-  in?: (string)[];
-  notIn?: (string)[];
-  between?: (string)[];
+  and?: (string | null)[] | null;
+  or?: (string | null)[] | null;
+  not?: IDFilterInput | null;
+  eq?: string | null;
+  eqi?: string | null;
+  ne?: string | null;
+  startsWith?: string | null;
+  endsWith?: string | null;
+  contains?: string | null;
+  notContains?: string | null;
+  containsi?: string | null;
+  notContainsi?: string | null;
+  gt?: string | null;
+  gte?: string | null;
+  lt?: string | null;
+  lte?: string | null;
+  null?: boolean | null;
+  notNull?: boolean | null;
+  in?: (string | null)[] | null;
+  notIn?: (string | null)[] | null;
+  between?: (string | null)[] | null;
 }
 
 export interface LineFiltersInput {
-  id?: IDFilterInput;
-  name?: StringFilterInput;
-  slug?: StringFilterInput;
-  products?: ProductFiltersInput;
-  createdAt?: DateTimeFilterInput;
-  updatedAt?: DateTimeFilterInput;
-  publishedAt?: DateTimeFilterInput;
-  and?: (LineFiltersInput)[];
-  or?: (LineFiltersInput)[];
-  not?: LineFiltersInput;
+  id?: IDFilterInput | null;
+  name?: StringFilterInput | null;
+  slug?: StringFilterInput | null;
+  products?: ProductFiltersInput | null;
+  createdAt?: DateTimeFilterInput | null;
+  updatedAt?: DateTimeFilterInput | null;
+  publishedAt?: DateTimeFilterInput | null;
+  and?: (LineFiltersInput | null)[] | null;
+  or?: (LineFiltersInput | null)[] | null;
+  not?: LineFiltersInput | null;
 }
 
 export interface PerfurmerFiltersInput {
-  id?: IDFilterInput;
-  name?: StringFilterInput;
-  slug?: StringFilterInput;
-  products?: ProductFiltersInput;
-  createdAt?: DateTimeFilterInput;
-  updatedAt?: DateTimeFilterInput;
-  publishedAt?: DateTimeFilterInput;
-  and?: (PerfurmerFiltersInput)[];
-  or?: (PerfurmerFiltersInput)[];
-  not?: PerfurmerFiltersInput;
+  id?: IDFilterInput | null;
+  name?: StringFilterInput | null;
+  slug?: StringFilterInput | null;
+  products?: ProductFiltersInput | null;
+  createdAt?: DateTimeFilterInput | null;
+  updatedAt?: DateTimeFilterInput | null;
+  publishedAt?: DateTimeFilterInput | null;
+  and?: (PerfurmerFiltersInput | null)[] | null;
+  or?: (PerfurmerFiltersInput | null)[] | null;
+  not?: PerfurmerFiltersInput | null;
 }
 
 export interface ProductFiltersInput {
-  id?: IDFilterInput;
-  name?: StringFilterInput;
-  slug?: StringFilterInput;
-  short_descritpion?: StringFilterInput;
-  description?: StringFilterInput;
-  price?: FloatFilterInput;
-  release_date?: DateFilterInput;
-  rating?: StringFilterInput;
-  brand?: BrandFiltersInput;
-  categories?: CategoryFiltersInput;
-  line?: LineFiltersInput;
-  perfurmers?: PerfurmerFiltersInput;
-  promotionalPrice?: FloatFilterInput;
-  createdAt?: DateTimeFilterInput;
-  updatedAt?: DateTimeFilterInput;
-  publishedAt?: DateTimeFilterInput;
-  and?: (ProductFiltersInput)[];
-  or?: (ProductFiltersInput)[];
-  not?: ProductFiltersInput;
+  id?: IDFilterInput | null;
+  name?: StringFilterInput | null;
+  slug?: StringFilterInput | null;
+  short_descritpion?: StringFilterInput | null;
+  description?: StringFilterInput | null;
+  price?: FloatFilterInput | null;
+  release_date?: DateFilterInput | null;
+  rating?: StringFilterInput | null;
+  brand?: BrandFiltersInput | null;
+  categories?: CategoryFiltersInput | null;
+  line?: LineFiltersInput | null;
+  perfurmers?: PerfurmerFiltersInput | null;
+  promotionalPrice?: FloatFilterInput | null;
+  createdAt?: DateTimeFilterInput | null;
+  updatedAt?: DateTimeFilterInput | null;
+  publishedAt?: DateTimeFilterInput | null;
+  and?: (ProductFiltersInput | null)[] | null;
+  or?: (ProductFiltersInput | null)[] | null;
+  not?: ProductFiltersInput | null;
 }
 
 export interface StringFilterInput {
-  and?: (string)[];
-  or?: (string)[];
-  not?: StringFilterInput;
-  eq?: string;
-  eqi?: string;
-  ne?: string;
-  startsWith?: string;
-  endsWith?: string;
-  contains?: string;
-  notContains?: string;
-  containsi?: string;
-  notContainsi?: string;
-  gt?: string;
-  gte?: string;
-  lt?: string;
-  lte?: string;
-  null?: boolean;
-  notNull?: boolean;
-  in?: (string)[];
-  notIn?: (string)[];
-  between?: (string)[];
+  and?: (string | null)[] | null;
+  or?: (string | null)[] | null;
+  not?: StringFilterInput | null;
+  eq?: string | null;
+  eqi?: string | null;
+  ne?: string | null;
+  startsWith?: string | null;
+  endsWith?: string | null;
+  contains?: string | null;
+  notContains?: string | null;
+  containsi?: string | null;
+  notContainsi?: string | null;
+  gt?: string | null;
+  gte?: string | null;
+  lt?: string | null;
+  lte?: string | null;
+  null?: boolean | null;
+  notNull?: boolean | null;
+  in?: (string | null)[] | null;
+  notIn?: (string | null)[] | null;
+  between?: (string | null)[] | null;
+}
+
+export interface UsersPermissionsRegisterInput {
+  username: string;
+  email: string;
+  password: string;
 }
 
 //==============================================================

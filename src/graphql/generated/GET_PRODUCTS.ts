@@ -16,12 +16,12 @@ export interface GET_PRODUCTS_products_data_attributes_brand_data_attributes {
 
 export interface GET_PRODUCTS_products_data_attributes_brand_data {
   __typename: "BrandEntity";
-  attributes: GET_PRODUCTS_products_data_attributes_brand_data_attributes;
+  attributes: GET_PRODUCTS_products_data_attributes_brand_data_attributes | null;
 }
 
 export interface GET_PRODUCTS_products_data_attributes_brand {
   __typename: "BrandEntityResponse";
-  data: GET_PRODUCTS_products_data_attributes_brand_data;
+  data: GET_PRODUCTS_products_data_attributes_brand_data | null;
 }
 
 export interface GET_PRODUCTS_products_data_attributes_cover_data_attributes {
@@ -31,26 +31,26 @@ export interface GET_PRODUCTS_products_data_attributes_cover_data_attributes {
 
 export interface GET_PRODUCTS_products_data_attributes_cover_data {
   __typename: "UploadFileEntity";
-  attributes: GET_PRODUCTS_products_data_attributes_cover_data_attributes;
+  attributes: GET_PRODUCTS_products_data_attributes_cover_data_attributes | null;
 }
 
 export interface GET_PRODUCTS_products_data_attributes_cover {
   __typename: "UploadFileEntityResponse";
-  data: GET_PRODUCTS_products_data_attributes_cover_data;
+  data: GET_PRODUCTS_products_data_attributes_cover_data | null;
 }
 
 export interface GET_PRODUCTS_products_data_attributes {
   __typename: "Product";
   name: string;
-  slug: string;
+  slug: string | null;
   price: number;
-  brand: GET_PRODUCTS_products_data_attributes_brand;
-  cover: GET_PRODUCTS_products_data_attributes_cover;
+  brand: GET_PRODUCTS_products_data_attributes_brand | null;
+  cover: GET_PRODUCTS_products_data_attributes_cover | null;
 }
 
 export interface GET_PRODUCTS_products_data {
   __typename: "ProductEntity";
-  attributes: GET_PRODUCTS_products_data_attributes;
+  attributes: GET_PRODUCTS_products_data_attributes | null;
 }
 
 export interface GET_PRODUCTS_products {
@@ -59,12 +59,12 @@ export interface GET_PRODUCTS_products {
 }
 
 export interface GET_PRODUCTS {
-  products: GET_PRODUCTS_products;
+  products: GET_PRODUCTS_products | null;
 }
 
 export interface GET_PRODUCTSVariables {
   limit: number;
   start?: number | null;
   where?: ProductFiltersInput | null;
-  sort?: (string)[] | null;
+  sort?: (string | null)[] | null;
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { signOut } from 'next-auth/react'
 
 import { useState } from 'react'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2'
@@ -12,7 +13,7 @@ import MediaMatch from 'components/MediaMatch'
 import * as S from './styles'
 
 export type MenuProps = {
-  username?: string
+  username?: string | null
 }
 
 const Menu = ({ username }: MenuProps) => {
@@ -50,12 +51,14 @@ const Menu = ({ username }: MenuProps) => {
         <S.IconWrapper>
           <ShoppingCartIcon aria-label="Open Shopping Cart" />
         </S.IconWrapper>
-        {!username && (
+        {!username ? (
           <MediaMatch greaterThan="medium">
             <Link href="/sign-in" passHref>
               <Button as="a">Sign in</Button>
             </Link>
           </MediaMatch>
+        ) : (
+          <Button onClick={() => signOut()}>Logout</Button>
         )}
       </S.MenuGroup>
 

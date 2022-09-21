@@ -1,4 +1,5 @@
 import { screen } from '@testing-library/react'
+import { SessionProvider } from 'next-auth/react'
 
 import productInfoMock from 'components/ProductInfo/mock'
 import perfumesMock from 'components/ProductCardSlider/mock'
@@ -7,6 +8,12 @@ import highlightMock from 'components/Highlight/mock'
 import Product, { ProductTemplateProps } from '.'
 import { renderWithTheme } from 'utils/tests/helpers'
 import { HighlightProps } from 'components/Highlight'
+
+const mockSession = {
+  user: { name: 'cintia', email: 'cintiantunes@gmail.com' },
+  expires: '2022-10-21T03:21:58.788Z',
+  id: 7
+}
 
 const props: ProductTemplateProps = {
   cover: 'bg-image.jpg',
@@ -47,7 +54,11 @@ jest.mock('components/Footer', () => ({
 
 describe('<Product />', () => {
   it('should render the template with components', () => {
-    renderWithTheme(<Product {...props} />)
+    renderWithTheme(
+      <SessionProvider session={mockSession}>
+        <Product {...props} />
+      </SessionProvider>
+    )
     expect(screen.getByTestId('Mock Menu')).toBeInTheDocument()
     expect(screen.getByTestId('Mock ProductInfo')).toBeInTheDocument()
     expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(2)
@@ -56,7 +67,11 @@ describe('<Product />', () => {
   })
 
   it('should render the cover image', () => {
-    renderWithTheme(<Product {...props} />)
+    renderWithTheme(
+      <SessionProvider session={mockSession}>
+        <Product {...props} />
+      </SessionProvider>
+    )
 
     const cover = screen.getByRole('image', { name: /cover/i })
 

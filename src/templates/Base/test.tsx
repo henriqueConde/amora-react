@@ -1,7 +1,14 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
+import { SessionProvider } from 'next-auth/react'
 
 import Base from '.'
+
+const mockSession = {
+  user: { name: 'cintia', email: 'cintiantunes@gmail.com' },
+  expires: '2022-10-21T03:21:58.788Z',
+  id: 7
+}
 
 jest.mock('components/Menu', () => {
   return {
@@ -24,9 +31,11 @@ jest.mock('components/Footer', () => {
 describe('<Base />', () => {
   it('should render menu, footer and children', () => {
     renderWithTheme(
-      <Base>
-        <h1>Heading</h1>
-      </Base>
+      <SessionProvider session={mockSession}>
+        <Base>
+          <h1>Heading</h1>
+        </Base>
+      </SessionProvider>
     )
 
     expect(screen.getByTestId('Mock Menu')).toBeInTheDocument()
