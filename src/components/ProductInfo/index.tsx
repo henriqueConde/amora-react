@@ -17,7 +17,7 @@ export type ProductInfoProps = {
 }
 
 const ProductInfo = ({ title, description, price }: ProductInfoProps) => (
-  <S.Wrapper>
+  <S.Wrapper data-cy="product-info">
     <Heading color="black" lineBottom>
       {title}
     </Heading>

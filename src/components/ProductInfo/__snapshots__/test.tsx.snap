@@ -225,6 +225,7 @@ exports[`<ProductInfo /> should render product informations 1`] = `
 
 <div
   class="c0"
+  data-cy="product-info"
 >
   <h2
     class="c1"

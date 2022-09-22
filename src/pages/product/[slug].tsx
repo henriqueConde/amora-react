@@ -37,9 +37,9 @@ export async function getStaticPaths() {
     }
   })
 
-  const productInfoArr = data.products.data
+  const productInfoArr = data?.products?.data
 
-  const paths = productInfoArr.map((product) => {
+  const paths = productInfoArr?.map((product) => {
     const { slug } = product.attributes
     return {
       params: { slug }

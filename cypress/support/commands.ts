@@ -69,3 +69,9 @@ Cypress.Commands.add('shouldRenderShowcase', ({ name, highlight = false }) => {
     cy.getByDataCy('product-card').should('have.length.at.least', 1)
   })
 })
+
+Cypress.Commands.add('getFields', (fields) => {
+  fields.map(({ label }) => {
+    cy.findByText(label).should('exist')
+  })
+})

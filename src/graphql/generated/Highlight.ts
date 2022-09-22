@@ -16,12 +16,12 @@ export interface Highlight_background_data_attributes {
 
 export interface Highlight_background_data {
   __typename: "UploadFileEntity";
-  attributes: Highlight_background_data_attributes | null;
+  attributes: Highlight_background_data_attributes;
 }
 
 export interface Highlight_background {
   __typename: "UploadFileEntityResponse";
-  data: Highlight_background_data | null;
+  data: Highlight_background_data;
 }
 
 export interface Highlight_floatImage_data_attributes {
@@ -31,12 +31,12 @@ export interface Highlight_floatImage_data_attributes {
 
 export interface Highlight_floatImage_data {
   __typename: "UploadFileEntity";
-  attributes: Highlight_floatImage_data_attributes | null;
+  attributes: Highlight_floatImage_data_attributes;
 }
 
 export interface Highlight_floatImage {
   __typename: "UploadFileEntityResponse";
-  data: Highlight_floatImage_data | null;
+  data: Highlight_floatImage_data;
 }
 
 export interface Highlight {
@@ -44,8 +44,8 @@ export interface Highlight {
   title: string;
   subtitle: string;
   background: Highlight_background;
-  floatImage: Highlight_floatImage | null;
+  floatImage: Highlight_floatImage;
   buttonLabel: string;
   buttonLink: string;
-  alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;
+  alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT;
 }

@@ -16,23 +16,23 @@ export interface QueryProductsBySlug_products_data_attributes_cover_data_attribu
 
 export interface QueryProductsBySlug_products_data_attributes_cover_data {
   __typename: "UploadFileEntity";
-  attributes: QueryProductsBySlug_products_data_attributes_cover_data_attributes | null;
+  attributes: QueryProductsBySlug_products_data_attributes_cover_data_attributes;
 }
 
 export interface QueryProductsBySlug_products_data_attributes_cover {
   __typename: "UploadFileEntityResponse";
-  data: QueryProductsBySlug_products_data_attributes_cover_data | null;
+  data: QueryProductsBySlug_products_data_attributes_cover_data;
 }
 
 export interface QueryProductsBySlug_products_data_attributes_gallery_data_attributes {
   __typename: "UploadFile";
-  label: string | null;
+  label: string;
   src: string;
 }
 
 export interface QueryProductsBySlug_products_data_attributes_gallery_data {
   __typename: "UploadFileEntity";
-  attributes: QueryProductsBySlug_products_data_attributes_gallery_data_attributes | null;
+  attributes: QueryProductsBySlug_products_data_attributes_gallery_data_attributes;
 }
 
 export interface QueryProductsBySlug_products_data_attributes_gallery {
@@ -46,15 +46,15 @@ export interface QueryProductsBySlug_products_data_attributes {
   short_descritpion: string;
   description: string;
   price: number;
-  rating: ENUM_PRODUCT_RATING | null;
-  release_date: any | null;
-  cover: QueryProductsBySlug_products_data_attributes_cover | null;
-  gallery: QueryProductsBySlug_products_data_attributes_gallery | null;
+  rating: ENUM_PRODUCT_RATING;
+  release_date: any;
+  cover: QueryProductsBySlug_products_data_attributes_cover;
+  gallery: QueryProductsBySlug_products_data_attributes_gallery;
 }
 
 export interface QueryProductsBySlug_products_data {
   __typename: "ProductEntity";
-  attributes: QueryProductsBySlug_products_data_attributes | null;
+  attributes: QueryProductsBySlug_products_data_attributes;
 }
 
 export interface QueryProductsBySlug_products {
@@ -63,9 +63,9 @@ export interface QueryProductsBySlug_products {
 }
 
 export interface QueryProductsBySlug {
-  products: QueryProductsBySlug_products | null;
+  products: QueryProductsBySlug_products;
 }
 
 export interface QueryProductsBySlugVariables {
-  slug?: string | null;
+  slug?: string;
 }

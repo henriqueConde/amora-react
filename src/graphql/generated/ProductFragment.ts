@@ -14,12 +14,12 @@ export interface ProductFragment_brand_data_attributes {
 
 export interface ProductFragment_brand_data {
   __typename: "BrandEntity";
-  attributes: ProductFragment_brand_data_attributes | null;
+  attributes: ProductFragment_brand_data_attributes;
 }
 
 export interface ProductFragment_brand {
   __typename: "BrandEntityResponse";
-  data: ProductFragment_brand_data | null;
+  data: ProductFragment_brand_data;
 }
 
 export interface ProductFragment_cover_data_attributes {
@@ -29,19 +29,19 @@ export interface ProductFragment_cover_data_attributes {
 
 export interface ProductFragment_cover_data {
   __typename: "UploadFileEntity";
-  attributes: ProductFragment_cover_data_attributes | null;
+  attributes: ProductFragment_cover_data_attributes;
 }
 
 export interface ProductFragment_cover {
   __typename: "UploadFileEntityResponse";
-  data: ProductFragment_cover_data | null;
+  data: ProductFragment_cover_data;
 }
 
 export interface ProductFragment {
   __typename: "Product";
   name: string;
-  slug: string | null;
+  slug: string;
   price: number;
-  brand: ProductFragment_brand | null;
-  cover: ProductFragment_cover | null;
+  brand: ProductFragment_brand;
+  cover: ProductFragment_cover;
 }
