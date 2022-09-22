@@ -30,26 +30,62 @@ describe('Products page', () => {
   })
 
   it('should order by price', () => {
-    cy.findByText(/lowest to highest/i).click()
-    cy.findByRole('button', { name: /filter/i }).click()
+    cy.selectAndApplyFilter('Lowest to highest')
 
     cy.location('href').should('contain', 'sort=price%3Aasc')
-    cy.wait(500)
     cy.getByDataCy('product-card')
       .first()
       .within(() => {
         cy.findByText('$79.90').should('exist')
       })
 
-    cy.findByText(/highest to lowest/i).click()
-    cy.findByRole('button', { name: /filter/i }).click()
+    cy.selectAndApplyFilter('Highest to lowest')
 
     cy.location('href').should('contain', 'sort=price%3Adesc')
-    cy.wait(500)
     cy.getByDataCy('product-card')
       .first()
       .within(() => {
         cy.findByText('$233.90').should('exist')
       })
+  })
+
+  it('should filter by price', () => {
+    cy.selectAndApplyFilter('Under $100')
+    cy.getByDataCy('product-card')
+      .first()
+      .within(() => {
+        cy.shouldBeLessThan(100)
+      })
+
+    cy.selectAndApplyFilter('Under $150')
+    cy.getByDataCy('product-card')
+      .first()
+      .within(() => {
+        cy.shouldBeLessThan(150)
+      })
+
+    cy.selectAndApplyFilter('Under $250')
+    cy.getByDataCy('product-card')
+      .first()
+      .within(() => {
+        cy.shouldBeLessThan(250)
+      })
+
+    cy.selectAndApplyFilter('Under $500')
+    cy.getByDataCy('product-card')
+      .first()
+      .within(() => {
+        cy.shouldBeLessThan(500)
+      })
+  })
+
+  it('should be able to select and apply brand and category filters', () => {
+    cy.selectAndApplyFilter('Lumiere Eau')
+    cy.selectAndApplyFilter('Aromatic')
+
+    cy.location('href').should(
+      'contain',
+      'brand=lumiere+eau&categories=aromatic'
+    )
   })
 })

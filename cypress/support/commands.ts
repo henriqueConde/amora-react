@@ -75,3 +75,17 @@ Cypress.Commands.add('getFields', (fields) => {
     cy.findByText(label).should('exist')
   })
 })
+
+Cypress.Commands.add('shouldBeLessThan', (value) => {
+  cy.findByText(/^\$\d+(\.\d{1,2})?/)
+    .invoke('text')
+    .then(($el) => $el.replace('$', ''))
+    .then(parseFloat)
+    .should('be.lt', value)
+})
+
+Cypress.Commands.add('selectAndApplyFilter', (value) => {
+  cy.findByText(value).click()
+  cy.findByRole('button', { name: /filter/i }).click()
+  cy.wait(500)
+})
