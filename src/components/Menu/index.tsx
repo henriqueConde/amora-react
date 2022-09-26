@@ -3,8 +3,6 @@ import { signOut } from 'next-auth/react'
 
 import { useState } from 'react'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2'
-import { ShoppingCart as ShoppingCartIcon } from '@styled-icons/material-outlined/ShoppingCart'
-import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 
 import Button from 'components/Button'
@@ -23,14 +21,14 @@ const Menu = ({ username }: MenuProps) => {
     <S.Wrapper>
       <MediaMatch lessThan="medium">
         <S.IconWrapper onClick={() => setIsOpen(true)}>
-          <MenuIcon aria-label="Open Menu" />
+          <MenuIcon aria-label="Open Menu" color="black" />
         </S.IconWrapper>
       </MediaMatch>
 
       <S.LogoWrapper>
         <Link href="/" passHref>
           <a>
-            <Logo hideOnMobile />
+            <Logo data-testid="logo" color="black" hideOnMobile />
           </a>
         </Link>
       </S.LogoWrapper>
@@ -40,17 +38,13 @@ const Menu = ({ username }: MenuProps) => {
           <Link href="/" passHref>
             <S.MenuLink>Home</S.MenuLink>
           </Link>
-          <S.MenuLink href="#">Explore</S.MenuLink>
+          <Link href="/products" passHref>
+            <S.MenuLink>Products</S.MenuLink>
+          </Link>
         </S.MenuNav>
       </MediaMatch>
 
       <S.MenuGroup>
-        <S.IconWrapper>
-          <SearchIcon aria-label="Search" />
-        </S.IconWrapper>
-        <S.IconWrapper>
-          <ShoppingCartIcon aria-label="Open Shopping Cart" />
-        </S.IconWrapper>
         {!username ? (
           <MediaMatch greaterThan="medium">
             <Link href="/sign-in" passHref>
@@ -69,13 +63,6 @@ const Menu = ({ username }: MenuProps) => {
             <S.MenuLink>Home</S.MenuLink>
           </Link>
           <S.MenuLink href="#">Explore</S.MenuLink>
-
-          {!!username && (
-            <>
-              <S.MenuLink href="#">My account</S.MenuLink>
-              <S.MenuLink href="#">Wishlist</S.MenuLink>
-            </>
-          )}
         </S.MenuNav>
 
         {!username && (

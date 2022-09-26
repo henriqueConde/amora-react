@@ -5,24 +5,19 @@ import {
 
 import Button from 'components/Button'
 import Heading from 'components/Heading'
-import Ribbon from 'components/Ribbon'
-import { formatPrice } from 'utils/formatPrice'
 
 import * as S from './styles'
 
 export type ProductInfoProps = {
   title: string
   description: string
-  price: number
 }
 
-const ProductInfo = ({ title, description, price }: ProductInfoProps) => (
+const ProductInfo = ({ title, description }: ProductInfoProps) => (
   <S.Wrapper data-cy="product-info">
     <Heading color="black" lineBottom>
       {title}
     </Heading>
-
-    <Ribbon color="secondary">{`${formatPrice(price)}`}</Ribbon>
 
     <S.Description>{description}</S.Description>
 

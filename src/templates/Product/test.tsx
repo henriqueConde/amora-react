@@ -3,11 +3,9 @@ import { SessionProvider } from 'next-auth/react'
 
 import productInfoMock from 'components/ProductInfo/mock'
 import perfumesMock from 'components/ProductCardSlider/mock'
-import highlightMock from 'components/Highlight/mock'
 
 import Product, { ProductTemplateProps } from '.'
 import { renderWithTheme } from 'utils/tests/helpers'
-import { HighlightProps } from 'components/Highlight'
 
 const mockSession = {
   user: { name: 'cintia', email: 'cintiantunes@gmail.com' },
@@ -19,8 +17,6 @@ const props: ProductTemplateProps = {
   cover: 'bg-image.jpg',
   productInfo: productInfoMock,
   description: `<h1>Custom HTML</h1>`,
-  upcomingProducts: perfumesMock,
-  promotionalHighLight: highlightMock as HighlightProps,
   recommendedProducts: perfumesMock
 }
 
@@ -61,7 +57,7 @@ describe('<Product />', () => {
     )
     expect(screen.getByTestId('Mock Menu')).toBeInTheDocument()
     expect(screen.getByTestId('Mock ProductInfo')).toBeInTheDocument()
-    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(2)
+    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(1)
     expect(screen.getByText(/custom html/i)).toBeInTheDocument()
     expect(screen.getByTestId('Mock Footer')).toBeInTheDocument()
   })
@@ -83,13 +79,5 @@ describe('<Product />', () => {
     expect(cover).toHaveStyleRule('height', '70rem', {
       media: '(min-width: 768px)'
     })
-
-    expect(cover).toHaveStyleRule(
-      'clip-path',
-      'polygon(0 0,100% 0,100% 100%,0 85%)',
-      {
-        media: '(min-width: 768px)'
-      }
-    )
   })
 })

@@ -19,13 +19,12 @@ import { useRouter } from 'next/router'
 import { ParsedUrlQueryInput } from 'querystring'
 
 export type ProductsTemplateProps = {
-  products?: ProductCardProps[]
   filterItems: ItemProps[]
 }
 
 const ProductsTemplate = ({ filterItems }: ProductsTemplateProps) => {
   const { push, query } = useRouter()
-  console.log(query)
+
   const { data, fetchMore, error, loading } = useQueryProducts({
     notifyOnNetworkStatusChange: true,
     variables: {

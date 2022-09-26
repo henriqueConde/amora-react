@@ -20,7 +20,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
+  background: #038FC9;
   color: #FAFAFA;
   border: 0;
   cursor: pointer;
@@ -35,7 +35,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
 }
 
 .c8:hover {
-  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+  background: #026b97;
 }
 
 .c2 {
@@ -51,7 +51,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
 }
 
 .c2:focus-within {
-  box-shadow: 0 0 0.5rem #F231A5;
+  box-shadow: 0 0 0.5rem #038FC9;
 }
 
 .c5 {
@@ -97,17 +97,17 @@ exports[`<FormSignIn /> should render the form 1`] = `
 }
 
 .c9 a {
-  color: #3CD3C1;
+  color: #03BDC9;
   -webkit-text-decoration: none;
   text-decoration: none;
-  border-bottom: 0.1rem solid #3CD3C1;
+  border-bottom: 0.1rem solid #03BDC9;
   -webkit-transition: color,border,0.1s ease-in-out;
   transition: color,border,0.1s ease-in-out;
 }
 
 .c9 a:hover {
-  color: #29b3a3;
-  border-bottom: 0.1rem solid #29b3a3;
+  color: #028e97;
+  border-bottom: 0.1rem solid #028e97;
 }
 
 .c6 {

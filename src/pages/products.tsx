@@ -5,8 +5,6 @@ import {
   GET_PRODUCTS,
   GET_PRODUCTSVariables
 } from 'graphql/generated/GET_PRODUCTS'
-import { parseQueryStringToWhere } from 'utils/filters'
-import { GetServerSidePropsContext } from 'next'
 import {
   brandFields,
   categoriesFields,
@@ -18,7 +16,7 @@ export default function ProductsPage(props: ProductsTemplateProps) {
   return <ProductsTemplate {...props} />
 }
 
-export async function getServerSideProps({ query }: GetServerSidePropsContext) {
+export async function getServerSideProps() {
   const apolloClient = initializeApollo()
 
   const filterPrice = {
@@ -54,13 +52,7 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
   await apolloClient.query<GET_PRODUCTS, GET_PRODUCTSVariables>({
     query: QUERY_PRODUCTS,
     variables: {
-      limit: 2,
-      where:
-        parseQueryStringToWhere({
-          queryString: query,
-          filterItems: filterItems
-        }) || null
-      // sort: [query?.sort as string] || null
+      limit: 2
     }
   })
   return {

@@ -2,7 +2,6 @@ import { BannerProps } from 'components/Banner'
 import { ProductCardProps } from 'components/ProductCard'
 import { HighlightProps } from 'components/Highlight'
 
-import { Container } from 'components/Container'
 import BannerSlider from 'components/BannerSlider'
 import Showcase from 'components/Showcase'
 
@@ -34,11 +33,9 @@ const Home = ({
   promotionalHighlight
 }: HomeTemplateProps) => (
   <Base>
-    <Container>
-      <S.SectionBanner>
-        <BannerSlider items={banners} />
-      </S.SectionBanner>
-    </Container>
+    <S.SectionBanner>
+      <BannerSlider items={banners} />
+    </S.SectionBanner>
 
     <S.SectionNews>
       <Showcase title="News" products={newProducts} />
@@ -59,7 +56,7 @@ const Home = ({
     </S.SectionUpcoming>
 
     <Showcase
-      title="Free perfumes"
+      title="Promotional products"
       highlight={promotionalHighlight}
       products={promotionalPerfumes}
     />

@@ -30,8 +30,8 @@ export async function getStaticProps() {
     sections.data.attributes.promotionalProducts.highlight
 
   return {
+    revalidate: 60,
     props: {
-      revalidate: 60,
       banners: mapBanners(banners),
       newProducts: mapHomeProducts(newProducts),
       mostPopularHighlight: mapHighlight(popularHighlight),

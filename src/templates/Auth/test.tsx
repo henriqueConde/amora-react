@@ -11,7 +11,7 @@ describe('<Auth />', () => {
       </Auth>
     )
 
-    expect(screen.getAllByRole('img', { name: /amora/i })).toHaveLength(2)
+    expect(screen.getAllByRole('link', { name: /amora/i })).toHaveLength(2)
 
     expect(
       screen.getByRole('heading', {

@@ -14,8 +14,7 @@ export default {
     slug: 'green-ocean'
   },
   argTypes: {
-    onFav: { action: 'clicked' },
-    ribbon: { type: 'string' }
+    onFav: { action: 'clicked' }
   }
 } as Meta
 
@@ -24,15 +23,3 @@ export const Default: Story<ProductCardProps> = (args: ProductCardProps) => (
     <ProductCard {...args} />
   </div>
 )
-
-export const WithRibbon: Story<ProductCardProps> = (args: ProductCardProps) => (
-  <div style={{ width: '30rem' }}>
-    <ProductCard {...args} />
-  </div>
-)
-
-WithRibbon.args = {
-  ribbon: '20% OFF',
-  ribbonSize: 'small',
-  ribbonColor: 'primary'
-}

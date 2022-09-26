@@ -1,7 +1,6 @@
 import { BannerProps } from 'components/Banner'
 import { HighlightProps } from 'components/Highlight'
 import { ProductCardProps } from 'components/ProductCard'
-import { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import {
   GET_PRODUCTS,
   GET_PRODUCTS_products_data
@@ -21,18 +20,13 @@ const BRASE_URL = 'http://localhost:1337'
 
 export const mapBanners = (banners: QueryHome_banners): BannerProps[] => {
   return banners?.data.map((banner) => {
-    const { image, button, ribbon, subtitle, title } = banner.attributes
+    const { image, button, subtitle, title } = banner.attributes
     return {
       img: `${BRASE_URL}${image.data.attributes.url}`,
       title,
       subtitle,
       buttonLabel: button.label,
-      buttonLink: button.link,
-      ...(ribbon && {
-        ribbon: ribbon.text,
-        ribbonColor: ribbon.color as RibbonColors,
-        ribbonSize: ribbon.size as RibbonSizes
-      })
+      buttonLink: button.link
     }
   })
 }

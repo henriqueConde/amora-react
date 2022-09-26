@@ -4,24 +4,24 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import Heading from '.'
 
 describe('<Heading />', () => {
-  it('should render a white heading by default', () => {
+  it('should render a black heading by default', () => {
     renderWithTheme(<Heading>amora</Heading>)
     expect(screen.getByRole('heading', { name: /amora/i })).toHaveStyle({
-      color: '#FAFAFA'
+      color: '#030517'
     })
   })
 
-  it('should render a black heading when color is passed', () => {
-    renderWithTheme(<Heading color="black">amora</Heading>)
+  it('should render a white heading when color is passed', () => {
+    renderWithTheme(<Heading color="white">amora</Heading>)
     expect(screen.getByRole('heading', { name: /amora/i })).toHaveStyle({
-      color: '#030517'
+      color: '#FAFAFA'
     })
   })
 
   it('should render a heading with a line to the left side', () => {
     renderWithTheme(<Heading lineLeft>amora</Heading>)
     expect(screen.getByRole('heading', { name: /amora/i })).toHaveStyle({
-      'border-left': '0.7rem solid #F231A5'
+      'border-left': '0.7rem solid #038FC9'
     })
   })
 
@@ -29,7 +29,7 @@ describe('<Heading />', () => {
     renderWithTheme(<Heading lineBottom>amora</Heading>)
     expect(screen.getByRole('heading', { name: /amora/i })).toHaveStyleRule(
       'border-bottom',
-      '0.5rem solid #F231A5',
+      '0.5rem solid #038FC9',
       {
         modifier: '::after'
       }
@@ -67,8 +67,8 @@ describe('<Heading />', () => {
     )
 
     const heading = screen.getByRole('heading', { name: /lorem ipsum/i })
-    expect(heading).toHaveStyle({ 'border-left': '0.7rem solid #F231A5' })
-    expect(heading).toHaveStyleRule('border-bottom', '0.5rem solid #F231A5', {
+    expect(heading).toHaveStyle({ 'border-left': '0.7rem solid #038FC9' })
+    expect(heading).toHaveStyleRule('border-bottom', '0.5rem solid #038FC9', {
       modifier: '::after'
     })
   })
@@ -81,8 +81,8 @@ describe('<Heading />', () => {
     )
 
     const heading = screen.getByRole('heading', { name: /lorem ipsum/i })
-    expect(heading).toHaveStyle({ 'border-left': '0.7rem solid #3CD3C1' })
-    expect(heading).toHaveStyleRule('border-bottom', '0.5rem solid #3CD3C1', {
+    expect(heading).toHaveStyle({ 'border-left': '0.7rem solid #03BDC9' })
+    expect(heading).toHaveStyleRule('border-bottom', '0.5rem solid #03BDC9', {
       modifier: '::after'
     })
   })

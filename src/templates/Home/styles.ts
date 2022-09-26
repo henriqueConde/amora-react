@@ -17,16 +17,16 @@ export const SectionBanner = styled.section`
 
 export const SectionNews = styled.div`
   ${({ theme }) => css`
+    color: ${theme.colors.black};
     margin-bottom: calc(${theme.spacings.xxlarge} * 2);
+    background-color: ${theme.colors.mainBg};
     ${media.greaterThan('large')`
       margin-top: -13rem;
     `}
     ${media.greaterThan('medium')`
       margin-bottom: 0;
       padding-top: 14rem;
-      padding-bottom: 10rem;
-      background-color: ${theme.colors.lightBg};
-      clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
+      margin-bottom: 10rem;
       ${HeadingStyles.Wrapper} {
         color: ${theme.colors.black};
       }

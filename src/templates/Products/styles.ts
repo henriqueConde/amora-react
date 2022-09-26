@@ -14,7 +14,7 @@ export const Main = styled(Container)`
 
 export const ShowMore = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.white};
+    color: ${theme.colors.black};
     text-align: center;
     padding: ${theme.spacings.medium};
     text-transform: uppercase;

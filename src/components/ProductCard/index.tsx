@@ -5,7 +5,6 @@ import {
 } from '@styled-icons/material-outlined'
 import Link from 'next/link'
 
-import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import Button from 'components/Button'
 import * as S from './styles'
 import { formatPrice } from 'utils/formatPrice'
@@ -18,9 +17,6 @@ export type ProductCardProps = {
   price: number
   promotionalPrice?: number
   favorite?: boolean
-  ribbon?: React.ReactNode
-  ribbonColor?: RibbonColors
-  ribbonSize?: RibbonSizes
   onFav?: () => void
 }
 
@@ -32,17 +28,10 @@ const ProductCard = ({
   price,
   promotionalPrice,
   favorite = false,
-  ribbon,
-  ribbonColor = 'primary',
-  ribbonSize = 'small',
+
   onFav
 }: ProductCardProps) => (
   <S.Wrapper data-cy="product-card">
-    {!!ribbon && (
-      <Ribbon color={ribbonColor} size={ribbonSize}>
-        {ribbon}
-      </Ribbon>
-    )}
     <Link href={`product/${slug}`} passHref>
       <S.ImageBox>
         <img src={img} alt={title} />

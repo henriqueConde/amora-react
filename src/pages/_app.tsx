@@ -8,7 +8,12 @@ import GlobalStyles from 'styles/global'
 import theme from 'styles/theme'
 import { useApollo } from 'utils/apollo'
 
-function App({ Component, pageProps }: AppProps) {
+interface AppApolloProps extends AppProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  pageProps: any
+}
+
+function App({ Component, pageProps }: AppApolloProps) {
   const client = useApollo(pageProps.initialApolloState)
   return (
     <SessionProvider session={pageProps.session}>
@@ -22,7 +27,7 @@ function App({ Component, pageProps }: AppProps) {
             <meta name="theme-color" content="#06092B" />
             <meta
               name="description"
-              content="A simple project with TypeScript, React, NextJS, Styled Components and much love :)"
+              content="A simple project with TypeScript, GraphQL, NextJS, Styled Components and much love :)"
             />
           </Head>
           <GlobalStyles />

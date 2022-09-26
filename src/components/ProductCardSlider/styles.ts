@@ -13,6 +13,7 @@ export const Wrapper = styled.section<WrapperProps>`
     .slick-track,
     .slick-list {
       display: flex;
+      padding-bottom: 1rem;
     }
     .slick-slide > div {
       margin: 0 ${theme.spacings.xxsmall};

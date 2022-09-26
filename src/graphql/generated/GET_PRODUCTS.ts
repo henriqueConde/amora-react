@@ -66,5 +66,5 @@ export interface GET_PRODUCTSVariables {
   limit: number;
   start?: number;
   where?: ProductFiltersInput;
-  sort?: (string)[];
+  sort?: (string)[] | null;
 }

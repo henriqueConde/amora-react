@@ -42,8 +42,8 @@ exports[`<Products /> should render sections 1`] = `
 }
 
 .c4::after {
-  border: 32px solid #FAFAFA;
-  border-color: #FAFAFA transparent #FAFAFA transparent;
+  border: 32px solid #030517;
+  border-color: #030517 transparent #030517 transparent;
   content: ' ';
   display: block;
   border-radius: 50%;
@@ -82,7 +82,7 @@ exports[`<Products /> should render sections 1`] = `
         >
           <div
             class="c4"
-            color="white"
+            color="black"
             data-testid="loading-spinner"
           />
         </main>

@@ -4,7 +4,7 @@ export type LoadingProps = {
   color?: 'black' | 'white'
 }
 
-const Loading = ({ color = 'white' }: LoadingProps) => (
+const Loading = ({ color = 'black' }: LoadingProps) => (
   <S.Wrapper>
     <S.Loading data-testid="loading-spinner" color={color} />
   </S.Wrapper>

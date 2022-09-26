@@ -1,4 +1,5 @@
 import styled, { css, DefaultTheme } from 'styled-components'
+import { darken } from 'polished'
 
 export const Wrapper = styled.article`
   ${({ theme }) => css`
@@ -8,6 +9,7 @@ export const Wrapper = styled.article`
     width: 100%;
     height: 100%;
     background-color: ${theme.colors.white};
+    box-shadow: 0 0.4rem 0.5rem 0 rgba(0, 0, 0, 0.2);
   `}
 `
 
@@ -102,7 +104,7 @@ const priceModifiers = {
   default: (theme: DefaultTheme) => css`
     color: ${theme.colors.white};
     padding: 0 ${theme.spacings.xxsmall};
-    background-color: ${theme.colors.secondary};
+    background-color: ${darken(0.1, theme.colors.secondary)};
     border-radius: ${theme.border.radius};
     margin-right: calc(${theme.spacings.xxsmall} / 2);
   `,

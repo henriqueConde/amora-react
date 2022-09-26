@@ -13,7 +13,7 @@ describe('<Radio />', () => {
 
     const label = screen.getByText('Radio')
     expect(label).toBeInTheDocument()
-    expect(label).toHaveStyle({ color: theme.colors.white })
+    expect(label).toHaveStyle({ color: theme.colors.black })
     expect(container.firstChild).toMatchSnapshot()
   })
 

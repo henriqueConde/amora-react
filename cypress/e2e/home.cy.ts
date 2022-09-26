@@ -10,6 +10,6 @@ describe('Home Page', () => {
     cy.shouldRenderShowcase({ name: 'News', highlight: false })
     cy.shouldRenderShowcase({ name: 'Most Popular', highlight: true })
     cy.shouldRenderShowcase({ name: 'Upcoming', highlight: true })
-    cy.shouldRenderShowcase({ name: 'Free perfumes', highlight: true })
+    cy.shouldRenderShowcase({ name: 'Promotional products', highlight: true })
   })
 })

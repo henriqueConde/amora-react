@@ -14,7 +14,7 @@ exports[`<Highlight /> should render headings and button 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
+  background: #038FC9;
   color: #FAFAFA;
   border: 0;
   cursor: pointer;
@@ -28,7 +28,7 @@ exports[`<Highlight /> should render headings and button 1`] = `
 }
 
 .c5:hover {
-  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+  background: #026b97;
 }
 
 .c0 {
@@ -127,4 +127,4 @@ exports[`<Highlight /> should render headings and button 1`] = `
     </a>
   </div>
 </section>
-`;
+`

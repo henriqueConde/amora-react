@@ -19,7 +19,7 @@ const Showcase = ({ title, highlight, products }: ShowcaseProps) => (
       </Heading>
     )}
     {!!highlight && <Highlight {...highlight} />}
-    {!!products && <ProductCardSlider items={products} />}
+    {!!products && <ProductCardSlider items={products} color="black" />}
   </S.Wrapper>
 )
 

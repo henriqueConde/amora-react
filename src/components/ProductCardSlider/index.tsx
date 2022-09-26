@@ -15,7 +15,7 @@ const screenSizes = {
 
 const settings: SliderSettings = {
   arrows: true,
-  slidesToShow: 4,
+  slidesToShow: 3,
   infinite: false,
   lazyLoad: 'ondemand',
   responsive: [

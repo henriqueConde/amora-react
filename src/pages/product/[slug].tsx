@@ -2,7 +2,6 @@ import { useRouter } from 'next/router'
 import Product, { ProductTemplateProps } from 'templates/Product'
 
 import perfumesMock from 'components/ProductCardSlider/mock'
-import highlightMock from 'components/Highlight/mock'
 import { initializeApollo } from 'utils/apollo'
 import {
   GET_PRODUCTS,
@@ -69,8 +68,8 @@ export const getStaticProps: GetStaticProps = async ({
   const product = data.products.data[0].attributes
 
   return {
+    revalidate: 60,
     props: {
-      revalidate: 60,
       cover: `http://localhost:1337${product.cover.data.attributes.src}`,
       productInfo: {
         title: product.name,
@@ -78,8 +77,6 @@ export const getStaticProps: GetStaticProps = async ({
         description: product.short_descritpion
       },
       description: product.description,
-      upcomingProducts: perfumesMock,
-      upcomingHighlight: highlightMock,
       recommendedProducts: perfumesMock
     }
   }

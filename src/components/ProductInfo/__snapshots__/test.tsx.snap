@@ -1,10 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ProductInfo /> should render product informations 1`] = `
-.c7 {
+.c5 {
   display: inline-block;
   vertical-align: middle;
   overflow: hidden;
+}
+
+.c4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: #038FC9;
+  color: #FAFAFA;
+  border: 0;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  height: 5rem;
+  font-size: 1.6rem;
+  padding: 0.8rem 4.8rem;
+}
+
+.c4:hover {
+  background: #026b97;
+}
+
+.c4 svg {
+  width: 1.5rem;
+}
+
+.c4 svg + span {
+  margin-left: 0.8rem;
 }
 
 .c6 {
@@ -20,7 +58,7 @@ exports[`<ProductInfo /> should render product informations 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
+  background: #038FC9;
   color: #FAFAFA;
   border: 0;
   cursor: pointer;
@@ -31,10 +69,12 @@ exports[`<ProductInfo /> should render product informations 1`] = `
   height: 5rem;
   font-size: 1.6rem;
   padding: 0.8rem 4.8rem;
+  background: none;
+  color: #038FC9;
 }
 
 .c6:hover {
-  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+  background: #026b97;
 }
 
 .c6 svg {
@@ -45,48 +85,8 @@ exports[`<ProductInfo /> should render product informations 1`] = `
   margin-left: 0.8rem;
 }
 
-.c8 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
-  color: #FAFAFA;
-  border: 0;
-  cursor: pointer;
-  border-radius: 0.4rem;
-  padding: 0.8rem;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  height: 5rem;
-  font-size: 1.6rem;
-  padding: 0.8rem 4.8rem;
-  background: none;
-  color: #F231A5;
-}
-
-.c8:hover {
-  background: none;
-}
-
-.c8 svg {
-  width: 1.5rem;
-}
-
-.c8 svg + span {
-  margin-left: 0.8rem;
-}
-
-.c8:hover {
-  color: #e20e8d;
+.c6:hover {
+  color: #026b97;
 }
 
 .c1 {
@@ -102,72 +102,23 @@ exports[`<ProductInfo /> should render product informations 1`] = `
   bottom: -0.5rem;
   content: '';
   width: 5rem;
-  border-bottom: 0.5rem solid #F231A5;
-}
-
-.c3 {
-  position: absolute;
-  top: 1.6rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-weight: 600;
-  color: #FAFAFA;
-  background-color: #3CD3C1;
-  font-size: 1.4rem;
-  padding: 0 2.4rem;
-  height: 3.6rem;
-  right: -2rem;
-}
-
-.c3::before {
-  content: '';
-  position: absolute;
-  right: 0;
-  border-style: solid;
-  border-left-width: 0rem;
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-  border-bottom-width: 1rem;
-}
-
-.c3::before {
-  border-left-color: #1f8a7d;
-  border-top-color: #1f8a7d;
-}
-
-.c3::before {
-  top: 3.6rem;
-  border-top-width: 1rem;
-  border-right-width: 2rem;
+  border-bottom: 0.5rem solid #038FC9;
 }
 
 .c0 {
   position: relative;
   background: #FAFAFA;
   padding: 2.4rem;
+  box-shadow: 0 0.4rem 0.5rem 0 rgba(0,0,0,0.2);
 }
 
-.c0 .c2 {
-  right: -1rem;
-}
-
-.c0 .c2:before {
-  border-right-width: 1rem;
-}
-
-.c4 {
+.c2 {
   font-size: 1.4rem;
   color: #8F8F8F;
   margin-bottom: 2.4rem;
 }
 
-.c5 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -181,7 +132,7 @@ exports[`<ProductInfo /> should render product informations 1`] = `
   align-items: center;
 }
 
-.c5 > button {
+.c3 > button {
   width: 100%;
   margin-bottom: 0.8rem;
 }
@@ -193,31 +144,19 @@ exports[`<ProductInfo /> should render product informations 1`] = `
 }
 
 @media (min-width:768px) {
-  .c0 .c2 {
-    right: 2.4rem;
-    top: 2.4rem;
-    font-size: 1.8rem;
-  }
-
-  .c0 .c2:before {
-    border: none;
-  }
-}
-
-@media (min-width:768px) {
-  .c4 {
+  .c2 {
     max-width: 77rem;
   }
 }
 
 @media (min-width:768px) {
-  .c5 {
+  .c3 {
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
   }
 
-  .c5 > button {
+  .c3 > button {
     width: initial;
     margin-bottom: 0;
   }
@@ -233,26 +172,20 @@ exports[`<ProductInfo /> should render product informations 1`] = `
   >
     My Product Title
   </h2>
-  <div
-    class="c2 c3"
-    color="secondary"
-  >
-    $215.00
-  </div>
   <p
-    class="c4"
+    class="c2"
   >
     Product Description
   </p>
   <div
-    class="c5"
+    class="c3"
   >
     <button
-      class="c6"
+      class="c4"
     >
       <svg
         aria-hidden="true"
-        class="c7"
+        class="c5"
         fill="currentColor"
         focusable="false"
         viewBox="0 0 24 24"
@@ -271,11 +204,11 @@ exports[`<ProductInfo /> should render product informations 1`] = `
       </span>
     </button>
     <button
-      class="c8"
+      class="c6"
     >
       <svg
         aria-hidden="true"
-        class="c7"
+        class="c5"
         fill="currentColor"
         focusable="false"
         viewBox="0 0 24 24"
