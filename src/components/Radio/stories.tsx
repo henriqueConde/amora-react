@@ -19,32 +19,32 @@ export const Default: Story<RadioProps> = (args) => (
   <>
     <div style={{ padding: 10 }}>
       <Radio
-        label="primeiro"
-        labelFor="primeiro"
-        id="primeiro"
+        label="first"
+        labelFor="first"
+        id="first"
         name="nome"
-        value="primeiro"
+        value="first"
         defaultChecked
         {...args}
       />
     </div>
     <div style={{ padding: 10 }}>
       <Radio
-        label="segundo"
-        labelFor="segundo"
-        id="segundo"
+        label="second"
+        labelFor="second"
+        id="second"
         name="nome"
-        value="segundo"
+        value="second"
         {...args}
       />
     </div>
     <div style={{ padding: 10 }}>
       <Radio
-        label="terceiro"
-        labelFor="terceiro"
-        id="terceiro"
+        label="third"
+        labelFor="third"
+        id="third"
         name="nome"
-        value="terceiro"
+        value="third"
         {...args}
       />
     </div>

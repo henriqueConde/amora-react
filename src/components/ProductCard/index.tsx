@@ -15,7 +15,7 @@ export type ProductCardProps = {
   brand: string | null
   img: string
   price: number
-  promotionalPrice?: number
+  promotionalPrice?: number | null
   favorite?: boolean
   onFav?: () => void
 }

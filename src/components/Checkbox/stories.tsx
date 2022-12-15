@@ -20,8 +20,8 @@ export const Default: Story<CheckboxProps> = (args) => (
     <div style={{ padding: 10 }}>
       <Checkbox
         name="category"
-        label="Action"
-        labelFor="action"
+        label="Aromatic"
+        labelFor="aromatic"
         isChecked
         {...args}
       />
@@ -29,18 +29,13 @@ export const Default: Story<CheckboxProps> = (args) => (
     <div style={{ padding: 10 }}>
       <Checkbox
         name="category"
-        label="Adventure"
-        labelFor="adventure"
+        label="Oriental"
+        labelFor="oriental"
         {...args}
       />
     </div>
     <div style={{ padding: 10 }}>
-      <Checkbox
-        name="category"
-        label="Strategy"
-        labelFor="strategy"
-        {...args}
-      />
+      <Checkbox name="category" label="Citric" labelFor="citric" {...args} />
     </div>
   </>
 )

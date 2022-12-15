@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.section`
   ${({ theme }) => css`
@@ -8,9 +9,13 @@ export const Wrapper = styled.section`
       position: absolute;
       bottom: 10%;
       left: 50%;
+      transform: translateX(-50%);
       align-items: center;
       justify-content: center;
       margin-top: ${theme.spacings.small};
+      ${media.lessThan('medium')`
+        bottom: 3%;
+      `}
       li {
         background: ${theme.colors.white};
         width: 1.2rem;

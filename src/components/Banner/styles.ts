@@ -36,6 +36,9 @@ export const Caption = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
+    ${media.lessThan('medium')`
+      padding: calc(${theme.spacings.xxlarge} + 1rem) ${theme.spacings.large};
+    `}
   `}
 `
 

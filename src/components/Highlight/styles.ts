@@ -11,6 +11,9 @@ const wrapperModifiers = {
     ${Content} {
       text-align: right;
     }
+    ${FloatImage} {
+      padding-left: 1.5rem;
+    }
   `,
   left: () => css`
     grid-template-areas: 'content floatimage';
@@ -19,6 +22,7 @@ const wrapperModifiers = {
       text-align: left;
     }
     ${FloatImage} {
+      padding-right: 1.5rem;
       justify-self: end;
     }
   `

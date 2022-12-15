@@ -20,11 +20,12 @@ const Auth = ({ title, children }: AuthProps) => (
         </Link>
 
         <div>
-          <Heading size="huge">
+          <Heading size="huge" color="white" lineColor="white">
             With much love you find here carefully curated perfumes
           </Heading>
           <S.Subtitle>
-            <strong>Amora</strong> is the best perfume store in the planet.
+            <strong>Amora</strong> is the most loving perfume store in the
+            planet.
           </S.Subtitle>
         </div>
 

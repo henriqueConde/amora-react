@@ -38,7 +38,7 @@ const Home = ({
     </S.SectionBanner>
 
     <S.SectionNews>
-      <Showcase title="News" products={newProducts} />
+      <Showcase title="New Products" products={newProducts} />
     </S.SectionNews>
 
     <Showcase

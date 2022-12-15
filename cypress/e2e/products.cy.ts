@@ -22,7 +22,7 @@ describe('Products page', () => {
     cy.getFields(categoriesFields)
   })
 
-  it('should show 2 games at first and then show more games when show more button is clicked', () => {
+  it('should show 2 products at first and then show more products when show more button is clicked', () => {
     cy.getByDataCy('product-card').should('have.length', 2)
     cy.findByRole('button', { name: /show more/i }).click()
 

@@ -84,6 +84,7 @@ export const Content = styled.div`
 export const ContentWrapper = styled.div`
   ${({ theme }) => css`
     width: 30rem;
+    text-align: center;
     ${media.greaterThan('medium')`
       width: 36rem;
     `}

@@ -7,11 +7,16 @@ import * as RadioStyles from 'components/Radio/styles'
 import * as HeadingStyles from 'components/Heading/styles'
 
 export const IconWrapper = styled.div`
-  cursor: pointer;
-  width: 2.4rem;
-  height: 2.4rem;
-  ${media.greaterThan('medium')`
+  ${({ theme }) => css`
+    cursor: pointer;
+    width: 2.4rem;
+    height: 2.4rem;
+    ${media.greaterThan('medium')`
     display: none;
+  `}
+    > svg {
+      fill: ${theme.colors.black};
+    }
   `}
 `
 

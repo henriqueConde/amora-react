@@ -85,6 +85,12 @@ exports[`<Banner /> should render correctly 1`] = `
   }
 }
 
+@media (max-width:768px) {
+  .c2 {
+    padding: calc(5.6rem + 1rem) 4.0rem;
+  }
+}
+
 @media (min-width:768px) {
   .c3 {
     font-size: 2.8rem;

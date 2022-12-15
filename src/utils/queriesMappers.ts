@@ -46,7 +46,8 @@ export const mapHomeProducts = (products: homeProducts): ProductCardProps[] => {
       brand: brand.data?.attributes.name || null,
       img: `${BRASE_URL}${cover.data.attributes.url}`,
       price,
-      slug
+      slug,
+      promotionalPrice: name === 'Coffee' ? 15 : null
     }
   })
 }

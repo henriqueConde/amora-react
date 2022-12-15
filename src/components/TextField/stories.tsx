@@ -12,7 +12,7 @@ export default {
     icon: <Email />,
     id: 'Email',
     initialValue: '',
-    placeholder: 'john.cage@gmail.com'
+    placeholder: 'jonathan.harker@gmail.com'
   },
   argTypes: {
     onInput: { action: 'changed' },
